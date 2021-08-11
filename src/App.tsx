@@ -8,7 +8,9 @@ import './App.css';
 function App() {
   const [motherColors, updateMotherColors] = useState<Array<number>>([-1, -1, -1]);
   const [fatherColors, updateFatherColors]= useState<Array<number>>([-1, -1, -1]);
+  const [childColors, updateChildColors]= useState<Array<number>>([-1, -1, -1]);
 
+  // What is this
   const [primarySpan, updatePrimarySpan] = useState<Array<ColorInterface>>([]);
   const [secondarySpan, updateSecondarySpan] = useState<Array<ColorInterface>>([]);
   const [tertiarySpan, updateTertiarySpan] = useState<Array<ColorInterface>>([]);
@@ -35,16 +37,38 @@ function App() {
     return `${(total * 100).toFixed(2)}%`;
   }
 
+const handleColorClick = (color: number, index: number) => {
+  let copy = [...childColors];
+  copy[index] = color;
+  updateChildColors(copy);
+}
+
   return (
     <div className="App">
       <Header />
       <main>
-        <Dragon id="mother" updateColors={updateMotherColors} />
-        <Dragon id="father" updateColors={updateFatherColors} />
+        <Dragon id="mother" colors={motherColors} updateColors={updateMotherColors} />
+        <Dragon id="father" colors={fatherColors} updateColors={updateFatherColors} />
+        <Dragon id="child" colors={childColors} updateColors={updateChildColors} />
 
-        <ColorProbability id="Primary" span={primarySpan} />
-        <ColorProbability id="Secondary" span={secondarySpan} />
-        <ColorProbability id="Tertiary" span={tertiarySpan} />
+        <ColorProbability
+          id="Primary"
+          span={primarySpan}
+          child={childColors[0]}
+          changeChildColor={handleColorClick}
+        />
+        <ColorProbability
+          id="Secondary"
+          span={secondarySpan}
+          child={childColors[1]}
+          changeChildColor={handleColorClick}
+        />
+        <ColorProbability
+          id="Tertiary"
+          span={tertiarySpan}
+          child={childColors[2]}
+          changeChildColor={handleColorClick} 
+        />
 
         {
           primarySpan.length > 0 && 

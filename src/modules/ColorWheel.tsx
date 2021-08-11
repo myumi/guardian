@@ -1,7 +1,8 @@
 export interface ColorInterface {
-  colorName: string,
-  colorCode: string,
-  textColor: string,
+  colorName: string;
+  colorCode: string;
+  textColor: string;
+  value?: number;
 }
 
 export const colorWheel: Array<ColorInterface> = [
@@ -155,66 +156,104 @@ export const colorWheel: Array<ColorInterface> = [
     colorCode: '#A592B0',
     textColor: 'white',
   },
+  {
+    colorName: 'Mist',
+    colorCode: '#E1CDFE',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Lavender',
+    colorCode: '#CCA4E0',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Heather',
+    colorCode: '#9678BB',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Purple',
+    colorCode: '#A260CE',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Orchid',
+    colorCode: '#D950FF',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Amethyst',
+    colorCode: '#993BD1',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Nightshade',
+    colorCode: '#772EB3',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Violet',
+    colorCode: '#643F9C',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Grape',
+    colorCode: '#580EC0',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Royal',
+    colorCode: '#4E2C8A',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Eggplant',
+    colorCode: '#3F2B66',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Iris',
+    colorCode: '#525195',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Storm',
+    colorCode: '#757ADA',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Twilight',
+    colorCode: '#484AA1',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Sapphire',
+    colorCode: '#0D0A5B',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Navy',
+    colorCode: '#212B60',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Cobalt',
+    colorCode: '#003384',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Ultramarine',
+    colorCode: '#1B51E7',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Blue',
+    colorCode: '#314BA7',
+    textColor: 'white',
+  },
 ];
 
-// finds the shortest distance between two colors and returns span of colors between them
-export const getSpanBetweenColors = (color1: number, color2: number): Array<ColorInterface> => {
-  console.log(color1, color2);
-  let currentColor = Math.min(color1, color2);
-  let goal = Math.max(color1, color2);;
-  let span = [colorWheel[currentColor]]; // default span is single color
-
-  // SHORT CIRCUIT
-  if (color1 > colorWheel.length || color2  > colorWheel.length || color1 < 0 || color2 < 0) {
-    return [];
-  }
-
-  // FINDING THE RIGHT DISTANCE
-  // if this distance is > half the length, we go around the loop
-  if (Math.abs(color1 - color2) > colorWheel.length / 2) {
-      // to do this, go from higher number -> lower number
-      // otherwise we normally do lower number -> higher number
-      currentColor = Math.max(color1, color2);
-      goal = Math.min(color1, color2);
-      span = [colorWheel[currentColor]];
-  }
-
-  // MAKE SPAN OF COLORS
-  // while we are not at our goal
-  while (currentColor !== goal) {
-    currentColor++;
-
-    // if we went past the max color value, reset to beginning of loop
-    if (currentColor > colorWheel.length - 1) {
-      currentColor = 0;
-    }
-
-    span.push(colorWheel[currentColor])
-  }
-
-  return span;
-}
-
-{/* <option value="31" class="mist">mist</option>
-<option value="32" class="lavender">lavender</option>
-<option value="33" class="heather">heather</option>
-<option value="34" class="purple">purple</option>
-<option value="35" class="orchid">orchid</option>
-<option value="36" class="amethyst">amethyst</option>
-<option value="37" class="nightshade">nightshade</option>
-<option value="38" class="violet">violet</option>
-<option value="39" class="grape">grape</option>
-<option value="40" class="royal">royal</option>
-<option value="41" class="eggplant">eggplant</option>
-<option value="42" class="iris">iris</option>
-<option value="43" class="storm">storm</option>
-<option value="44" class="twilight">twilight</option>
-<option value="45" class="indigo">indigo</option>
-<option value="46" class="sapphire">sapphire</option>
-<option value="47" class="navy">navy</option>
-<option value="48" class="cobalt">cobalt</option>
-<option value="49" class="ultramarine">ultramarine</option>
-<option value="50" class="blue">blue</option>
+{/* 
 <option value="51" class="periwinkle">periwinkle</option>
 <option value="52" class="lapis">lapis</option>
 <option value="53" class="splash">splash</option>
@@ -342,3 +381,42 @@ export const getSpanBetweenColors = (color1: number, color2: number): Array<Colo
 <option value="175" class="bubblegum">bubblegum</option>
 <option value="176" class="rose">rose</option>
 <option value="177" class="pearl">pearl</option> */}
+
+// finds the shortest distance between two colors and returns span of colors between them
+export const getSpanBetweenColors = (color1: number, color2: number): Array<ColorInterface> => {
+  let currentColor = Math.min(color1, color2);
+  let goal = Math.max(color1, color2);;
+  let span = [{...colorWheel[currentColor], value: currentColor}]; // default span is single color
+
+  // SHORT CIRCUIT
+  if (color1 > colorWheel.length || color2  > colorWheel.length || color1 < 0 || color2 < 0) {
+    return [];
+  }
+
+  // FINDING THE RIGHT DISTANCE
+  // if this distance is > half the length, we go around the loop
+  if (Math.abs(color1 - color2) > colorWheel.length / 2) {
+      // to do this, go from higher number -> lower number
+      // otherwise we normally do lower number -> higher number
+      currentColor = Math.max(color1, color2);
+      goal = Math.min(color1, color2);
+      span = [{...colorWheel[currentColor], value: currentColor}];
+  }
+
+  // MAKE SPAN OF COLORS
+  // while we are not at our goal
+  while (currentColor !== goal) {
+    currentColor++;
+
+    // if we went past the max color value, reset to beginning of loop
+    if (currentColor > colorWheel.length - 1) {
+      currentColor = 0;
+    }
+
+    span.push({...colorWheel[currentColor], value: currentColor});
+  }
+
+  return span;
+}
+
+// Alex wuz here >:)
