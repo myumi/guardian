@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import store from './store/store';
 import Header from './components/Header';
 import Dragon from './components/Dragon';
 import ColorProbability from './components/ColorProbability';
@@ -6,11 +7,11 @@ import { ColorInterface, getSpanBetweenColors } from './modules/ColorWheel';
 import './App.css';
 
 function App() {
+  console.log('Initial state: ', store.getState())
   const [motherColors, updateMotherColors] = useState<Array<number>>([-1, -1, -1]);
   const [fatherColors, updateFatherColors]= useState<Array<number>>([-1, -1, -1]);
   const [childColors, updateChildColors]= useState<Array<number>>([-1, -1, -1]);
 
-  // What is this
   const [primarySpan, updatePrimarySpan] = useState<Array<ColorInterface>>([]);
   const [secondarySpan, updateSecondarySpan] = useState<Array<ColorInterface>>([]);
   const [tertiarySpan, updateTertiarySpan] = useState<Array<ColorInterface>>([]);

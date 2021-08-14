@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { colorWheel } from '../modules/ColorWheel';
 
 interface ColorSelectProps {
