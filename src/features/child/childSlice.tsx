@@ -14,10 +14,15 @@ const initalState: RootState = {
 // 'color/childColors', [newColors] -> color update
 export default function childReducer(state: RootState = initalState, action: Action) {
   switch (action.type) {
+    case 'dragon/childColors':
+      return {
+        ...state,
+        childColors: [...action.payload],
+      };
     case 'color/childColors':
       return {
         ...state,
-        childColors: [...action.payload.newColors],
+        childColors: [...action.payload],
       };
     
     case 'app/clearColors':

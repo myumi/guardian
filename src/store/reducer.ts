@@ -1,5 +1,5 @@
-import dragonReducer from './features/dragon/dragonSlice'
-import childReducer from './features/child/childSlice'
+import dragonReducer from '../features/dragon/dragonSlice'
+import childReducer from '../features/child/childSlice'
 import { combineReducers } from 'redux';
 
 export interface Action {

@@ -3,13 +3,13 @@ import { colorWheel } from '../modules/ColorWheel';
 interface ColorSelectProps {
   type: string;
   value: number;
-  updateParent: Function;
+  updateColor: Function;
 }
 
-export default function ColorSelect({ type, value, updateParent }: ColorSelectProps) {
+export default function ColorSelect({ type, value, updateColor }: ColorSelectProps) {
 
   const handleChange = (event: any) => {
-    updateParent(+event.target.value);
+    updateColor(+event.target.value);
   }
 
   return (

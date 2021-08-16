@@ -23,31 +23,24 @@ const initalState: RootState = {
 
 // 'dragon/motherColors', [newColors] -> color & span update
 // 'dragon/fatherColors', [newColors] -> color & span update
-// 'dragon/childColors', [newColors] -> color update
 export default function dragonReducer(state: RootState = initalState, action: Action) {
   switch (action.type) {
     case 'dragon/motherColors':
       return {
         ...state,
-        motherColors: [...action.payload.newColors],
-        primarySpan: [...getSpanBetweenColors(action.payload.newColors[0], state.fatherColors[0])],
-        secondarySpan: [...getSpanBetweenColors(action.payload.newColors[1], state.fatherColors[1])],
-        tertiarySpans: [...getSpanBetweenColors(action.payload.newColors[2], state.fatherColors[2])],
+        motherColors: [...action.payload],
+        primarySpan: [...getSpanBetweenColors(action.payload[0], state.fatherColors[0])],
+        secondarySpan: [...getSpanBetweenColors(action.payload[1], state.fatherColors[1])],
+        tertiarySpan: [...getSpanBetweenColors(action.payload[2], state.fatherColors[2])],
       };
 
     case 'dragon/fatherColors':
       return {
         ...state,
-        fatherColors: [...action.payload.newColors],
-        primarySpan: [...getSpanBetweenColors(state.motherColors[0], action.payload.newColors[0])],
-        secondarySpan: [...getSpanBetweenColors(state.motherColors[1], action.payload.newColors[1])],
-        tertiarySpans: [...getSpanBetweenColors(state.motherColors[2], action.payload.newColors[2])],
-      };
-
-    case 'dragon/childColors' || 'color/childColors':
-      return {
-        ...state,
-        childColors: [...action.payload.newColors],
+        fatherColors: [...action.payload],
+        primarySpan: [...getSpanBetweenColors(state.motherColors[0], action.payload[0])],
+        secondarySpan: [...getSpanBetweenColors(state.motherColors[1], action.payload[1])],
+        tertiarySpan: [...getSpanBetweenColors(state.motherColors[2], action.payload[2])],
       };
 
     case 'app/clearColors':
