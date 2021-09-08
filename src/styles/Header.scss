@@ -1,0 +1,20 @@
+@import '_colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+
+header {
+  display: flex;
+  align-items: center;
+
+  background-color: $grey2;
+  color: $grey5;
+  height: 40px;
+  font-family: 'Yeseva One';
+  margin: 0 0 20px 0;
+  text-align: left;
+  padding: 15px 20px;
+}
+
+.header__title {
+  cursor: pointer;
+}
+

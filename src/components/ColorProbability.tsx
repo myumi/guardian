@@ -1,5 +1,6 @@
 import Color from './Color';
 import { ColorInterface } from '../modules/ColorWheel';
+import '../styles/ColorProbability.scss'
 
 interface ColorProbabilityProps {
   id: 'Primary' | 'Secondary' | 'Tertiary';
@@ -15,7 +16,7 @@ export default function ColorProbability({ id, span, child }: ColorProbabilityPr
   }
 
   return (
-    <section>
+    <section className="color-probability">
       <h2>
         {id} Color Outcomes
         {

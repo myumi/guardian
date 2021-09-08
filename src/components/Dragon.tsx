@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import store from '../store/store';
 import ColorSelect from './ColorSelect';
+import '../styles/Dragon.scss';
 
 interface DragonProps {
   id: string;
@@ -13,9 +15,18 @@ export default function Dragon({ id, colors }: DragonProps) {
   const [secondary, updateSecondary] = useState<number>(colors[1]);
   const [tertiary, updateTertiary] = useState<number>(colors[2]);
 
-  // when colors change, update them in parent
+  // this seems hacky; when Color is clicked, the select elements need to update
+  // without this they don't change
+  store.subscribe(() => {
+    const state: any = store.getState();
+    const type = id === 'child' ? 'child' : 'dragons';
+    updatePrimary(state[type][`${id}Colors`][0]);
+    updateSecondary(state[type][`${id}Colors`][1]);
+    updateTertiary(state[type][`${id}Colors`][2]);
+  })
+
+  // when colors change from select elements, update them in store
   useEffect(() => {
-    console.log(id)
     dispatch({type: `dragon/${id}Colors`, payload: [primary, secondary, tertiary]});
   }, [primary, secondary, tertiary, dispatch, id]);
 

@@ -1,5 +1,5 @@
 import { colorWheel } from '../modules/ColorWheel';
-
+// todo: not updating here when color component is clicked
 interface ColorSelectProps {
   type: string;
   value: number;
@@ -7,7 +7,6 @@ interface ColorSelectProps {
 }
 
 export default function ColorSelect({ type, value, updateColor }: ColorSelectProps) {
-
   const handleChange = (event: any) => {
     updateColor(+event.target.value);
   }

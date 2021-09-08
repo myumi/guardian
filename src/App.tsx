@@ -1,14 +1,10 @@
 import { useSelector } from 'react-redux';
-import store from './store/store';
 import Header from './components/Header';
 import Dragon from './components/Dragon';
 import ColorProbability from './components/ColorProbability';
-import './App.css';
+import './styles/App.css';
 
 function App() {
-  // redux setup
-  console.log('Initial state: ', store.getState());
-
   const motherColors = useSelector((state: any) => state.dragons.motherColors);
   const fatherColors = useSelector((state: any) => state.dragons.fatherColors);
   const childColors = useSelector((state: any) => state.child.childColors);
@@ -27,9 +23,11 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <Dragon id="mother" colors={motherColors} />
-        <Dragon id="father" colors={fatherColors} />
-        <Dragon id="child" colors={childColors} />
+        <div className="dragon--selectors">
+          <Dragon id="mother" colors={motherColors} />
+          <Dragon id="father" colors={fatherColors} />
+          <Dragon id="child" colors={childColors} />
+        </div>
 
         <ColorProbability
           id="Primary"
