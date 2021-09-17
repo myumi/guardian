@@ -1,8 +1,4 @@
-export interface Action {
-  type: string;
-  payload?: any;
-}
-
+import Action from '../../store/action';
 export interface RootState {
   childColors: Array<number>;
 }

@@ -1,10 +1,5 @@
+import Action from '../../store/action';
 import { ColorInterface, getSpanBetweenColors } from '../../modules/ColorWheel';
-
-export interface Action {
-  type: string;
-  payload?: any;
-}
-
 export interface RootState {
   motherColors: Array<number>;
   fatherColors: Array<number>;
