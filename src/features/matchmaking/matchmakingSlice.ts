@@ -1,70 +1,59 @@
-import Action from '../../store/action';
-import { ColorInterface, getSpanBetweenColors } from '../../modules/ColorWheel';
-import Dragon from '../../components/Dragon';
-import ColorProbability from '../../components/ColorProbability';
-import { moveEmitHelpers } from 'typescript';
-
-interface Dragon {
-  name: string;
-  primary: number;
-  secondary: number;
-  tertiary: number;
-}
-
-interface Match {
-  mother: Dragon;
-  father: Dragon;
-  chance: number;
-}
-
+import { Dragon, Match } from '../../types';
+import { Action } from '../../store/types/types';
+import { ColorInterface } from '../../modules/types/types';
+import { getSpanBetweenColors } from '../../modules/ColorWheel';
 export interface RootState {
   mothers: Array<Dragon>;
   fathers: Array<Dragon>;
-  child: Dragon;
   bestMatches: Array<Array<Dragon>>;
-  bestXMatch: Array<Dragon>;
-  bestYMatch: Array<Dragon>;
-  bestZMatch: Array<Dragon>;
-  bestXYMatch: Array<Dragon>;
-  bestYZMatch: Array<Dragon>;
-  bestXZMatch: Array<Dragon>;
-}
+  bestXMatches: Array<Dragon>;
+  bestYMatches: Array<Dragon>;
+  bestZMatches: Array<Dragon>;
+  bestXYMatches: Array<Dragon>;
+  bestYZMatches: Array<Dragon>;
+  bestXZMatches: Array<Dragon>;
+};
 
 const initalState: RootState = {
   mothers: [] as Array<Dragon>,
   fathers: [] as Array<Dragon>,
-  child: {} as Dragon,
   bestMatches: [] as Array<Array<Dragon>>,
-  bestXMatch: [] as Array<Dragon>,
-  bestYMatch: [] as Array<Dragon>,
-  bestZMatch: [] as Array<Dragon>,
-  bestXYMatch: [] as Array<Dragon>,
-  bestYZMatch: [] as Array<Dragon>,
-  bestXZMatch: [] as Array<Dragon>,
-}
+  bestXMatches: [] as Array<Dragon>,
+  bestYMatches: [] as Array<Dragon>,
+  bestZMatches: [] as Array<Dragon>,
+  bestXYMatches: [] as Array<Dragon>,
+  bestYZMatches: [] as Array<Dragon>,
+  bestXZMatches: [] as Array<Dragon>,
+};
 
 export default function matchmakingReducer(state: RootState = initalState, action: Action) {
+  let newMothers = [...state.mothers];
+  let newFathers = [...state.fathers];
+
   switch (action.type) {
     case 'matchingmaking/calculate':
-      const results = calculateAllParentProbability(state.mothers, state.fathers, state.child)
+      const results = calculateAllParentProbability(state.mothers, state.fathers, action.payload);
+      console.log(results);
       return {
         ...state,
         ...results,
       };
     case 'matchmaking/addMother':
+      newMothers.push(action.payload);
       return {
         ...state,
-        mothers: state.mothers.push(action.payload),
+        mothers: [...newMothers],
       };
     case 'matchmaking/addFather':
+      newFathers.push(action.payload);
       return {
         ...state,
-        fathers: state.fathers.push(action.payload),
+        fathers: [...newFathers],
       };
     case 'matchmaking/removeMother':
       let motherIndex = state.mothers.indexOf(action.payload);
       if (motherIndex) {
-        const newMothers = state.mothers.splice(motherIndex, 1);
+        newMothers = state.mothers.splice(motherIndex, 1);
 
         return {
           ...state,
@@ -75,11 +64,11 @@ export default function matchmakingReducer(state: RootState = initalState, actio
     case 'matchmaking/removeFather':
       const fatherIndex = state.fathers.indexOf(action.payload);
       if (fatherIndex) {
-        const newMothers = state.mothers.splice(fatherIndex, 1);
+        newFathers = state.fathers.splice(fatherIndex, 1);
 
         return {
           ...state,
-          mothers: [...newMothers],
+          fathers: [...newFathers],
         };
       }
       return state;
@@ -88,7 +77,7 @@ export default function matchmakingReducer(state: RootState = initalState, actio
   }
 }
 
-function calculateAllParentProbability(mothers: Array<Dragon>, fathers: Array<Dragon>, child: Dragon): Object {
+function calculateAllParentProbability(mothers: Array<Dragon>, fathers: Array<Dragon>, child: Array<number>): Object {
   let bestMatches: Array<Match> = [];
   let bestXYMatches: Array<Match> = [];
   let bestYZMatches: Array<Match> = [];
@@ -103,9 +92,9 @@ function calculateAllParentProbability(mothers: Array<Dragon>, fathers: Array<Dr
       const x = getSpanBetweenColors(mother.primary, father.primary);
       const y = getSpanBetweenColors(mother.secondary, father.secondary);
       const z = getSpanBetweenColors(mother.tertiary, father.tertiary);
-      const chanceOfX = calculateColorProbability(x, child.primary);
-      const chanceOfY = calculateColorProbability(y, child.secondary);
-      const chanceOfZ = calculateColorProbability(z, child.tertiary);
+      const chanceOfX = calculateColorProbability(x, child[0]);
+      const chanceOfY = calculateColorProbability(y, child[1]);
+      const chanceOfZ = calculateColorProbability(z, child[2]);
 
       // only push to array if probability is not zero
       if (chanceOfX) {

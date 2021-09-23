@@ -1,9 +1,4 @@
-export interface ColorInterface {
-  colorName: string;
-  colorCode: string;
-  textColor: string;
-  value?: number;
-}
+import { ColorInterface } from './types/types';
 
 export const colorWheel: Array<ColorInterface> = [
   {

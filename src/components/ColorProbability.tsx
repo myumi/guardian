@@ -1,5 +1,5 @@
 import Color from './Color';
-import { ColorInterface } from '../modules/ColorWheel';
+import { ColorInterface } from '../modules/types/types';
 import '../styles/ColorProbability.scss'
 
 interface ColorProbabilityProps {

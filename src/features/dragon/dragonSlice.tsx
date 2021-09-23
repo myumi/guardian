@@ -1,6 +1,9 @@
-import Action from '../../store/action';
-import { ColorInterface, getSpanBetweenColors } from '../../modules/ColorWheel';
+import { Action } from '../../store/types/types';
+import { ColorInterface } from '../../modules/types/types';
+import { getSpanBetweenColors } from '../../modules/ColorWheel';
 export interface RootState {
+  motherName: string;
+  fatherName: string;
   motherColors: Array<number>;
   fatherColors: Array<number>;
   primarySpan: Array<ColorInterface>;
@@ -9,6 +12,8 @@ export interface RootState {
 }
 
 const initalState: RootState = {
+  motherName: '' as string,
+  fatherName: '' as string,
   motherColors: [-1, -1, -1] as Array<number>,
   fatherColors: [-1, -1, -1] as Array<number>,
   primarySpan: [] as Array<ColorInterface>,
@@ -38,15 +43,29 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
         tertiarySpan: [...getSpanBetweenColors(state.motherColors[2], action.payload[2])],
       };
 
-    case 'app/clearColors':
-    return {
-      ...state,
-      motherColors: [...initalState.motherColors],
-      fatherColors: [...initalState.fatherColors],
-      primarySpan: [...initalState.primarySpan],
-      secondarySpan: [...initalState.secondarySpan],
-      tertiarySpan: [...initalState.primarySpan],
-    };
+    case 'dragon/clearMother':
+      return {
+        ...state,
+        motherName: initalState.motherName,
+        motherColors: [...initalState.motherColors],
+      };
+
+      case 'dragon/clearFather':
+        return {
+          ...state,
+          fatherName: initalState.fatherName,
+          fatherColors: [...initalState.fatherColors],
+        };
+
+      case 'app/clearColors':
+      return {
+        ...state,
+        motherColors: [...initalState.motherColors],
+        fatherColors: [...initalState.fatherColors],
+        primarySpan: [...initalState.primarySpan],
+        secondarySpan: [...initalState.secondarySpan],
+        tertiarySpan: [...initalState.primarySpan],
+      };
 
     default:
       return state;

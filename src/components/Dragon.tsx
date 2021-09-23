@@ -23,7 +23,7 @@ export default function Dragon({ id, colors }: DragonProps) {
     updatePrimary(state[type][`${id}Colors`][0]);
     updateSecondary(state[type][`${id}Colors`][1]);
     updateTertiary(state[type][`${id}Colors`][2]);
-  })
+  });
 
   // when colors change from select elements, update them in store
   useEffect(() => {

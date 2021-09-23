@@ -1,4 +1,4 @@
-import Action from '../../store/action';
+import { Action } from '../../store/types/types';
 export interface RootState {
   childColors: Array<number>;
 }

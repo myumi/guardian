@@ -1,7 +1,10 @@
 ### To-Do
 **BUGS**
-* child not updating when color is clicked
-* clean up redux
+* clean up redux types (use the dragon type over an array of colors)
 
 **FEATURES**
-* allow for submission of potential parents and provide pair with most likely offspring
+* show color traits next to dragon name on matchmaking screen
+* show suggestions to get better percentages
+* add notice about chances below 10% not being ideal
+* design UI
+* finish adding all colors to color wheel

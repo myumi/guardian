@@ -2,6 +2,9 @@ import { useSelector } from 'react-redux';
 import Header from './components/Header';
 import Dragon from './components/Dragon';
 import ColorProbability from './components/ColorProbability';
+import MatchMaking from './components/MatchMaking';
+import AddParentButton from './components/AddParentButton';
+import CalculateButton from './components/CalculateButton';
 import './styles/App.css';
 
 function App() {
@@ -51,6 +54,11 @@ function App() {
           tertiarySpan.length > 0 &&
           <h3>Total Chance for Specific Child: {getTotalPercentage(primarySpan.length, secondarySpan.length, tertiarySpan.length)}</h3> 
         }
+
+        <AddParentButton id="mother" />
+        <AddParentButton id="father" />
+        <CalculateButton />
+        <MatchMaking />
       </main>
     </div>
   )
