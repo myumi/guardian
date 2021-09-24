@@ -1,11 +1,11 @@
-import { Dragon, Match } from '../../types';
+import { Dragon, Match } from 'guardian';
 import { Action } from '../../store/types/types';
 import { ColorInterface } from '../../modules/types/types';
 import { getSpanBetweenColors } from '../../modules/ColorWheel';
 export interface RootState {
   mothers: Array<Dragon>;
   fathers: Array<Dragon>;
-  bestMatches: Array<Array<Dragon>>;
+  bestMatches: Array<Dragon>;
   bestXMatches: Array<Dragon>;
   bestYMatches: Array<Dragon>;
   bestZMatches: Array<Dragon>;
@@ -17,7 +17,7 @@ export interface RootState {
 const initalState: RootState = {
   mothers: [] as Array<Dragon>,
   fathers: [] as Array<Dragon>,
-  bestMatches: [] as Array<Array<Dragon>>,
+  bestMatches: [] as Array<Dragon>,
   bestXMatches: [] as Array<Dragon>,
   bestYMatches: [] as Array<Dragon>,
   bestZMatches: [] as Array<Dragon>,

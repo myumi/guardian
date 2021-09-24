@@ -1,30 +1,29 @@
+import { INITAL_DRAGON } from '../../types/constants';
 import { Action } from '../../store/types/types';
-export interface RootState {
-  childColors: Array<number>;
-}
+import { Dragon } from 'guardian';
 
-const initalState: RootState = {
-  childColors: [-1, -1, -1] as Array<number>,
-}
+const initalState: Dragon = {
+  ...INITAL_DRAGON,
+};
 
 // 'color/childColors', [newColors] -> color update
-export default function childReducer(state: RootState = initalState, action: Action) {
+export default function childReducer(state: Dragon = initalState, action: Action) {
   switch (action.type) {
     case 'dragon/childColors':
       return {
         ...state,
-        childColors: [...action.payload],
+        ...action.payload,
       };
     case 'color/childColors':
       return {
         ...state,
-        childColors: [...action.payload],
+        ...action.payload,
       };
-    
     case 'app/clearColors':
       return {
         ...state,
-        childColors: [...initalState.childColors],
+        ...initalState,
+        name: state.name,
       };
       
     default:

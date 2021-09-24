@@ -19,7 +19,7 @@ function App() {
   const getTotalPercentage = (primarySpanLength: number, secondarySpanLength: number, TertiarySpanLength: number): string => {
     const total = (1 / primarySpanLength) * (1 / secondarySpanLength) * (1 / TertiarySpanLength);
 
-    return `${(total * 100).toFixed(2)}%`;
+    return `${(total * 100).toFixed(5)}%`;
   }
 
   return (

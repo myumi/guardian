@@ -1,5 +1,4 @@
-import { Match } from '../types';
-
+import { Match } from 'guardian';
 interface MatchMakingListProps {
   array: Array<Match>;
   type?: string;
