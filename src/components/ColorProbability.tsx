@@ -5,10 +5,10 @@ import '../styles/ColorProbability.scss'
 interface ColorProbabilityProps {
   id: 'Primary' | 'Secondary' | 'Tertiary';
   span: Array<ColorInterface>;
-  child: number;
+  childColor: number;
 }
 
-export default function ColorProbability({ id, span, child }: ColorProbabilityProps) {
+export default function ColorProbability({ id, span, childColor }: ColorProbabilityProps) {
   const makePercentage = (spanLength: number): string => {
     if (!spanLength) return '0%';
 
@@ -34,7 +34,7 @@ export default function ColorProbability({ id, span, child }: ColorProbabilityPr
               colorCode={colorCode}
               value={value}
               category={id}
-              isChildColor={child > -1 ? value === child : false}
+              isChildColor={childColor > -1 ? value === childColor : false}
               key={`${id.toLowerCase()}-${colorName}`}
             />)
         }

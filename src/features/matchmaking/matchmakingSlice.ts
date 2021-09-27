@@ -1,7 +1,10 @@
 import { Dragon, Match } from 'guardian';
-import { Action } from '../../store/types/types';
 import { ColorInterface } from '../../modules/types/types';
 import { getSpanBetweenColors } from '../../modules/ColorWheel';
+interface Action {
+  type: string,
+  payload: Dragon,
+}
 export interface RootState {
   mothers: Array<Dragon>;
   fathers: Array<Dragon>;
@@ -77,7 +80,7 @@ export default function matchmakingReducer(state: RootState = initalState, actio
   }
 }
 
-function calculateAllParentProbability(mothers: Array<Dragon>, fathers: Array<Dragon>, child: Array<number>): Object {
+function calculateAllParentProbability(mothers: Array<Dragon>, fathers: Array<Dragon>, child: Dragon): Object {
   let bestMatches: Array<Match> = [];
   let bestXYMatches: Array<Match> = [];
   let bestYZMatches: Array<Match> = [];
@@ -92,9 +95,9 @@ function calculateAllParentProbability(mothers: Array<Dragon>, fathers: Array<Dr
       const x = getSpanBetweenColors(mother.primary, father.primary);
       const y = getSpanBetweenColors(mother.secondary, father.secondary);
       const z = getSpanBetweenColors(mother.tertiary, father.tertiary);
-      const chanceOfX = calculateColorProbability(x, child[0]);
-      const chanceOfY = calculateColorProbability(y, child[1]);
-      const chanceOfZ = calculateColorProbability(z, child[2]);
+      const chanceOfX = calculateColorProbability(x, child.primary);
+      const chanceOfY = calculateColorProbability(y, child.secondary);
+      const chanceOfZ = calculateColorProbability(z, child.tertiary);
 
       // only push to array if probability is not zero
       if (chanceOfX) {

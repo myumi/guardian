@@ -1,6 +1,5 @@
 /// <reference types="guardian" />
-
-declare namespace Guardian {
+declare module "guardian" {
   export interface Dragon {
     name: string;
     primary: number;
