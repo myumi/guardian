@@ -64,7 +64,10 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
       if (isDragon(action.payload)) {
         return {
           ...state,
-          child: {...action.payload},
+          child: {
+            ...state.child,
+            ...action.payload
+          },
         };
       }
       return {

@@ -33,19 +33,16 @@ function App() {
         </div>
 
         <ColorProbability
-          id="Primary"
+          id="primary"
           span={primarySpan}
-          childColor={child.primary}
         />
         <ColorProbability
-          id="Secondary"
+          id="secondary"
           span={secondarySpan}
-          childColor={child.secondary}
         />
         <ColorProbability
-          id="Tertiary"
+          id="tertiary"
           span={tertiarySpan}
-          childColor={child.tertiary}
         />
 
         {
