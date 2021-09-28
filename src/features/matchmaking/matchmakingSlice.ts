@@ -36,7 +36,6 @@ export default function matchmakingReducer(state: RootState = initalState, actio
   switch (action.type) {
     case 'matchingmaking/calculate':
       const results = calculateAllParentProbability(state.mothers, state.fathers, action.payload);
-      console.log(results);
       return {
         ...state,
         ...results,

@@ -17,10 +17,10 @@ export default function AddParentButton({ id }: AddParentButtonProps) {
       {
         type: `matchmaking/add${casedId}`,
         payload: {
-          name: state.dragons[`${id}Name`] || 'Unnamed',
-          primary: state.dragons[`${id}Colors`][0],
-          secondary: state.dragons[`${id}Colors`][1],
-          tertiary: state.dragons[`${id}Colors`][2],
+          name: state.dragons[id].name|| 'Unnamed',
+          primary: state.dragons[id].primary,
+          secondary: state.dragons[id].secondary,
+          tertiary: state.dragons[id].tertiary,
         }
       }
     );

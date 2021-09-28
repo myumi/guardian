@@ -19,7 +19,7 @@ export default function MatchMakingList({array, type}: MatchMakingListProps) {
         {
           array.length 
           ? array.map((item: any, index: number) => {
-            return <li key={`${type}: ${index}`}>{item.mother.name} x {item.father.name}: {+item.chance.toFixed(5)}%</li>
+            return <li key={`${type}: ${index}`}>{item.mother.name} x {item.father.name}: {+(item.chance * 100).toFixed(3)}%</li>
           })
           : emptyStatement
         }

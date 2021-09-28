@@ -12,6 +12,9 @@ function App() {
   const father = useSelector((state: any) => state.dragons.father);
   const child = useSelector((state: any) => state.dragons.child);
 
+  const motherParents = useSelector((state: any) => state.matchmaking.mothers);
+  const fatherParents = useSelector((state: any) => state.matchmaking.fathers);
+
   const primarySpan = useSelector((state: any) => state.dragons.primarySpan);
   const secondarySpan = useSelector((state: any) => state.dragons.secondarySpan);
   const tertiarySpan = useSelector((state: any) => state.dragons.tertiarySpan);
@@ -51,6 +54,14 @@ function App() {
           tertiarySpan.length > 0 &&
           <h3>Total Chance for Specific Child: {getTotalPercentage(primarySpan.length, secondarySpan.length, tertiarySpan.length)}</h3> 
         }
+
+        {
+          motherParents.map((item: any) => <li key={item.name}>{item.name} {item.primary}</li>)
+        }
+
+        {
+          fatherParents.map((item: any) => <li key={item.name}>{item.name} {item.primary}</li>)
+        } 
 
         <AddParentButton id="mother" />
         <AddParentButton id="father" />

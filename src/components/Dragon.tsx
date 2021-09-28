@@ -1,14 +1,15 @@
 import ColorSelect from './ColorSelect';
 import { Dragon as DragonType } from 'guardian';
 import '../styles/Dragon.scss';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 interface DragonProps {
   id: string;
   dragon: DragonType;
 };
 
 export default function Dragon({ id, dragon }: DragonProps) {
-  const value = useSelector((state: any) => state.dragons.child.name);
+  const value = useSelector((state: any) => state.dragons[id].name);
+  const dispatch = useDispatch();
 
   const handleChange = (event: any) => {
     dispatch({
@@ -32,7 +33,3 @@ export default function Dragon({ id, dragon }: DragonProps) {
     </section>
   );
 };
-
-function dispatch(arg0: { type: string; payload: { event: any; "": any; }; }) {
-  throw new Error('Function not implemented.');
-}
