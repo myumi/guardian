@@ -8,9 +8,12 @@ import CalculateButton from './components/CalculateButton';
 import './styles/App.css';
 
 function App() {
-  const motherColors = useSelector((state: any) => state.dragons.motherColors);
-  const fatherColors = useSelector((state: any) => state.dragons.fatherColors);
-  const childColors = useSelector((state: any) => state.child.childColors);
+  const mother = useSelector((state: any) => state.dragons.mother);
+  const father = useSelector((state: any) => state.dragons.father);
+  const child = useSelector((state: any) => state.dragons.child);
+
+  const motherParents = useSelector((state: any) => state.matchmaking.mothers);
+  const fatherParents = useSelector((state: any) => state.matchmaking.fathers);
 
   const primarySpan = useSelector((state: any) => state.dragons.primarySpan);
   const secondarySpan = useSelector((state: any) => state.dragons.secondarySpan);
@@ -19,7 +22,7 @@ function App() {
   const getTotalPercentage = (primarySpanLength: number, secondarySpanLength: number, TertiarySpanLength: number): string => {
     const total = (1 / primarySpanLength) * (1 / secondarySpanLength) * (1 / TertiarySpanLength);
 
-    return `${(total * 100).toFixed(2)}%`;
+    return `${(total * 100).toFixed(5)}%`;
   }
 
   return (
@@ -27,25 +30,22 @@ function App() {
       <Header />
       <main>
         <div className="dragon--selectors">
-          <Dragon id="mother" colors={motherColors} />
-          <Dragon id="father" colors={fatherColors} />
-          <Dragon id="child" colors={childColors} />
+          <Dragon id="mother" dragon={mother} />
+          <Dragon id="father" dragon={father} />
+          <Dragon id="child" dragon={child} />
         </div>
 
         <ColorProbability
-          id="Primary"
+          id="primary"
           span={primarySpan}
-          child={childColors[0]}
         />
         <ColorProbability
-          id="Secondary"
+          id="secondary"
           span={secondarySpan}
-          child={childColors[1]}
         />
         <ColorProbability
-          id="Tertiary"
+          id="tertiary"
           span={tertiarySpan}
-          child={childColors[2]}
         />
 
         {
@@ -54,6 +54,14 @@ function App() {
           tertiarySpan.length > 0 &&
           <h3>Total Chance for Specific Child: {getTotalPercentage(primarySpan.length, secondarySpan.length, tertiarySpan.length)}</h3> 
         }
+
+        {
+          motherParents.map((item: any) => <li key={item.name}>{item.name} {item.primary}</li>)
+        }
+
+        {
+          fatherParents.map((item: any) => <li key={item.name}>{item.name} {item.primary}</li>)
+        } 
 
         <AddParentButton id="mother" />
         <AddParentButton id="father" />

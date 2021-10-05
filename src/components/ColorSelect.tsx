@@ -1,18 +1,28 @@
+import { useDispatch } from 'react-redux';
 import { colorWheel } from '../modules/ColorWheel';
-// todo: not updating here when color component is clicked
+import store from '../store/store';
 interface ColorSelectProps {
   type: string;
-  value: number;
-  updateColor: Function;
-}
+  id: string;
+};
 
-export default function ColorSelect({ type, value, updateColor }: ColorSelectProps) {
+export default function ColorSelect({ type, id } : ColorSelectProps) {
+  const dispatch = useDispatch();
+  const state: any = store.getState();
+  const value = state.dragons[id][type];
+
+  // when user changes color, update the store
   const handleChange = (event: any) => {
-    updateColor(+event.target.value);
-  }
+    dispatch({type: `dragon/${id}Colors`, payload: {[type]: +event.target.value}});
+  };
 
   return (
-    <select className="color-select" id={type} value={value} onChange={handleChange}>
+    <select 
+      className="color-select" 
+      id={`${id}_${type}`} 
+      value={value} 
+      onChange={handleChange}
+    >
       {/* the default value is the type (primary, secondary, etc) */}
       <option value="-1">({type.split('_')[0]} color)</option>
 
@@ -25,5 +35,5 @@ export default function ColorSelect({ type, value, updateColor }: ColorSelectPro
         })
       }
     </select>
-  )
-}
+  );
+};

@@ -246,136 +246,642 @@ export const colorWheel: Array<ColorInterface> = [
     colorCode: '#314BA7',
     textColor: 'white',
   },
+  {
+    colorName: 'Periwinkle',
+    colorCode: '#4866D4',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Lapis',
+    colorCode: '#2C84FF',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Splash',
+    colorCode: '#6494DC',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Cornflower',
+    colorCode: '#75A8FF',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Sky',
+    colorCode: '#AFC8FD',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Stonewash',
+    colorCode: '#7895C1',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Overcast',
+    colorCode: '#454F6A',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Steel',
+    colorCode: '#56697A',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Denim',
+    colorCode: '#304558',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Abyss',
+    colorCode: '#0C1D24',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Phthalo',
+    colorCode: '#0B2D46',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Azure',
+    colorCode: '#0A3D68',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Caribbean',
+    colorCode: '#0186CE',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Teal',
+    colorCode: '#2C768F',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Cerulean',
+    colorCode: '#00B4D5',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Cyan',
+    colorCode: '#01FFF1',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Robin',
+    colorCode: '#9BEAEF',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Aqua',
+    colorCode: '#73C4C5',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Turquoise',
+    colorCode: '#39A0A3',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Spruce',
+    colorCode: '#8BBAB2',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Pistachio',
+    colorCode: '#E3FFE8',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Seafoam',
+    colorCode: '#B2E1BD',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Mint',
+    colorCode: '#9BFEC5',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Jade',
+    colorCode: '#61AB8A',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Spearmint',
+    colorCode: '#148E67',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Thicket',
+    colorCode: '#005D48',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Peacock',
+    colorCode: '#1E4739',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Emerald',
+    colorCode: '#20603E',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Shamrock',
+    colorCode: '#236825',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Jungle',
+    colorCode: '#1F361A',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Hunter',
+    colorCode: '#1E2716',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Forest',
+    colorCode: '#414F35',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Camo',
+    colorCode: '#51684C',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Algae',
+    colorCode: '#97AF8B',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Swamp',
+    colorCode: '#687E67',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Avocado',
+    colorCode: '#587B35',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Green',
+    colorCode: '#609E3C',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Fern',
+    colorCode: '#7FCE73',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Mantis',
+    colorCode: '#99FE9C',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Pear',
+    colorCode: '#8ECE55',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Leaf',
+    colorCode: '#A6E130',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Radioactive',
+    colorCode: '#C6FF00',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Honeydew',
+    colorCode: '#D2E673',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Peridot',
+    colorCode: '#EAFFB6',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Charteuse',
+    colorCode: '#B4CD3D',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Spring',
+    colorCode: '#AA9F33',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Crocodile',
+    colorCode: '#828335',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Olive',
+    colorCode: '#697135',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Murk',
+    colorCode: '#4C4420',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Moss',
+    colorCode: '#7E7645',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Goldenrod',
+    colorCode: '#BEA65E',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Amber',
+    colorCode: '#C28F19',
+    textColor: 'black',
+  },
+    {
+    colorName: 'Honey',
+    colorCode: '#D2B301',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Lemon',
+    colorCode: '#FFE53C',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Yellow',
+    colorCode: '#F8E155',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Grapefruit',
+    colorCode: '#F7FF6E',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Banana',
+    colorCode: '#FEEC80',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Sanddollar',
+    colorCode: '#EBE6AE',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Flaxen',
+    colorCode: '#FDE9AE',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Ivory',
+    colorCode: '#FFD298',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Buttercup',
+    colorCode: '#F6BF6C',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Gold',
+    colorCode: '#E8AE4A',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Metals',
+    colorCode: '#D1B146',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Marigold',
+    colorCode: '#FEB43B',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Sunshine',
+    colorCode: '#FB912B',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Saffron',
+    colorCode: '#FE8501',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Sunset',
+    colorCode: '#FFA247',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Peach',
+    colorCode: '#FFB576',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Cantaloupe',
+    colorCode: '#FF984F',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Orange',
+    colorCode: '#D5602B',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Bronze',
+    colorCode: '#B1560D',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Terracotta',
+    colorCode: '#B24407',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Carrot',
+    colorCode: '#FF5500',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Fire',
+    colorCode: '#EF5D24',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Pumpkin',
+    colorCode: '#FF6841',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Tangerine',
+    colorCode: '#FF7361',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Cinnamon',
+    colorCode: '#C15A39',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Caramel',
+    colorCode: '#C57047',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Sand',
+    colorCode: '#B17749',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Tan',
+    colorCode: '#C59A70',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Beige',
+    colorCode: '#CBBBA1',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Stone',
+    colorCode: '#817964',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Taupe',
+    colorCode: '#6E665B',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Slate',
+    colorCode: '#564D48',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Driftwood',
+    colorCode: '#76645A',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Latte',
+    colorCode: '#977B6D',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Dirt',
+    colorCode: '#774840',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Clay',
+    colorCode: '#613F3E',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Sable',
+    colorCode: '#58382D',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Umber',
+    colorCode: '#301E1A',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Soil',
+    colorCode: '#5A4534',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Hickory',
+    colorCode: '#715538',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Tarnish',
+    colorCode: '#865C32',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Ginger',
+    colorCode: '#8F542C',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Brown',
+    colorCode: '#8E5B40',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Chocolate',
+    colorCode: '#573013',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Auburn',
+    colorCode: '#7B3C1D',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Copper',
+    colorCode: '#A44B29',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Rust',
+    colorCode: '#8B3220',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Tomato',
+    colorCode: '#B9311B',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Vermillion',
+    colorCode: '#E22D18',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Ruby',
+    colorCode: '#CD000F',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Cherry',
+    colorCode: '#AA0024',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Crimson',
+    colorCode: '#850013',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Garnet',
+    colorCode: '#5B0E14',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Sanguine',
+    colorCode: '#2E0002',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Blood',
+    colorCode: '#451717',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Maroon',
+    colorCode: '#662028',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Berry',
+    colorCode: '#8D262D',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Red',
+    colorCode: '#C1262D',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Strawberry',
+    colorCode: '#DF3236',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Cerise',
+    colorCode: '#A22A2B',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Carmine',
+    colorCode: '#B13B3B',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Brick',
+    colorCode: '#9A534D',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Coral',
+    colorCode: '#CC706F',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Blush',
+    colorCode: '#FFA2A2',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Cottoncandy',
+    colorCode: '#EC7896',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Watermelon',
+    colorCode: '#DC528B',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Magenta',
+    colorCode: '#EA34AB',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Fushia',
+    colorCode: '#EC0089',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Raspberry',
+    colorCode: '#8A024B',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Wine',
+    colorCode: '#4D0F28',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Mauve',
+    colorCode: '#9B4874',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Pink',
+    colorCode: '#E77EC0',
+    textColor: 'white',
+  },
+  {
+    colorName: 'Bubblegum',
+    colorCode: '#E7A9FF',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Rose',
+    colorCode: '#FED7F6',
+    textColor: 'black',
+  },
+  {
+    colorName: 'Pearl',
+    colorCode: '#FBEDFA',
+    textColor: 'white',
+  },
 ];
-
-{/* 
-<option value="51" class="periwinkle">periwinkle</option>
-<option value="52" class="lapis">lapis</option>
-<option value="53" class="splash">splash</option>
-<option value="54" class="cornflower">cornflower</option>
-<option value="55" class="sky">sky</option>
-<option value="56" class="stonewash">stonewash</option>
-<option value="57" class="overcast">overcast</option>
-<option value="58" class="steel">steel</option>
-<option value="59" class="denim">denim</option>
-<option value="60" class="abyss">abyss</option>
-<option value="61" class="phthalo">phthalo</option>
-<option value="62" class="azure">azure</option>
-<option value="63" class="caribbean">caribbean</option>
-<option value="64" class="teal">teal</option>
-<option value="65" class="cerulean">cerulean</option>
-<option value="66" class="cyan">cyan</option>
-<option value="67" class="robin">robin</option>
-<option value="68" class="aqua">aqua</option>
-<option value="69" class="turquoise">turquoise</option>
-<option value="70" class="spruce">spruce</option>
-<option value="71" class="pistachio">pistachio</option>
-<option value="72" class="seafoam">seafoam</option>
-<option value="73" class="mint">mint</option>
-<option value="74" class="jade">jade</option>
-<option value="75" class="spearmint">spearmint</option>
-<option value="76" class="thicket">thicket</option>
-<option value="77" class="peacock">peacock</option>
-<option value="78" class="emerald">emerald</option>
-<option value="79" class="shamrock">shamrock</option>
-<option value="80" class="jungle">jungle</option>
-<option value="81" class="hunter">hunter</option>
-<option value="82" class="forest">forest</option>
-<option value="83" class="camo">camo</option>
-<option value="84" class="algae">algae</option>
-<option value="85" class="swamp">swamp</option>
-<option value="86" class="avocado">avocado</option>
-<option value="87" class="green">green</option>
-<option value="88" class="fern">fern</option>
-<option value="89" class="mantis">mantis</option>
-<option value="90" class="pear">pear</option>
-<option value="91" class="leaf">leaf</option>
-<option value="92" class="radioactive">radioactive</option>
-<option value="93" class="honeydew">honeydew</option>
-<option value="94" class="peridot">peridot</option>
-<option value="95" class="chartreuse">chartreuse</option>
-<option value="96" class="spring">spring</option>
-<option value="97" class="crocodile">crocodile</option>
-<option value="98" class="olive">olive</option>
-<option value="99" class="murk">murk</option>
-<option value="100" class="moss">moss</option>
-<option value="101" class="goldenrod">goldenrod</option>
-<option value="102" class="amber">amber</option>
-<option value="103" class="honey">honey</option>
-<option value="104" class="lemon">lemon</option>
-<option value="105" class="yellow">yellow</option>
-<option value="106" class="grapefruit">grapefruit</option>
-<option value="107" class="banana">banana</option>
-<option value="108" class="sanddollar">sanddollar</option>
-<option value="109" class="flaxen">flaxen</option>
-<option value="110" class="ivory">ivory</option>
-<option value="111" class="buttercup">buttercup</option>
-<option value="112" class="gold">gold</option>
-<option value="113" class="metals">metals</option>
-<option value="114" class="marigold">marigold</option>
-<option value="115" class="sunshine">sunshine</option>
-<option value="116" class="saffron">saffron</option>
-<option value="117" class="sunset">sunset</option>
-<option value="118" class="peach">peach</option>
-<option value="119" class="cantaloupe">cantaloupe</option>
-<option value="120" class="orange">orange</option>
-<option value="121" class="bronze">bronze</option>
-<option value="122" class="terracotta">terracotta</option>
-<option value="123" class="carrot">carrot</option>
-<option value="124" class="fire">fire</option>
-<option value="125" class="pumpkin">pumpkin</option>
-<option value="126" class="tangerine">tangerine</option>
-<option value="127" class="cinnamon">cinnamon</option>
-<option value="128" class="caramel">caramel</option>
-<option value="129" class="sand">sand</option>
-<option value="130" class="tan">tan</option>
-<option value="131" class="beige">beige</option>
-<option value="132" class="stone">stone</option>
-<option value="133" class="taupe">taupe</option>
-<option value="134" class="slate">slate</option>
-<option value="135" class="driftwood">driftwood</option>
-<option value="136" class="latte">latte</option>
-<option value="137" class="dirt">dirt</option>
-<option value="138" class="clay">clay</option>
-<option value="139" class="sable">sable</option>
-<option value="140" class="umber">umber</option>
-<option value="141" class="soil">soil</option>
-<option value="142" class="hickory">hickory</option>
-<option value="143" class="tarnish">tarnish</option>
-<option value="144" class="ginger">ginger</option>
-<option value="145" class="brown">brown</option>
-<option value="146" class="chocolate">chocolate</option>
-<option value="147" class="auburn">auburn</option>
-<option value="148" class="copper">copper</option>
-<option value="149" class="rust">rust</option>
-<option value="150" class="tomato">tomato</option>
-<option value="151" class="vermillion">vermillion</option>
-<option value="152" class="ruby">ruby</option>
-<option value="153" class="cherry">cherry</option>
-<option value="154" class="crimson">crimson</option>
-<option value="155" class="garnet">garnet</option>
-<option value="156" class="sanguine">sanguine</option>
-<option value="157" class="blood">blood</option>
-<option value="158" class="maroon">maroon</option>
-<option value="159" class="berry">berry</option>
-<option value="160" class="red">red</option>
-<option value="161" class="strawberry">strawberry</option>
-<option value="162" class="cerise">cerise</option>
-<option value="163" class="carmine">carmine</option>
-<option value="164" class="brick">brick</option>
-<option value="165" class="coral">coral</option>
-<option value="166" class="blush">blush</option>
-<option value="167" class="cottoncandy">cottoncandy</option>
-<option value="168" class="watermelon">watermelon</option>
-<option value="169" class="magenta">magenta</option>
-<option value="170" class="fuchsia">fuchsia</option>
-<option value="171" class="raspberry">raspberry</option>
-<option value="172" class="wine">wine</option>
-<option value="173" class="mauve">mauve</option>
-<option value="174" class="pink">pink</option>
-<option value="175" class="bubblegum">bubblegum</option>
-<option value="176" class="rose">rose</option>
-<option value="177" class="pearl">pearl</option> */}
 
 // finds the shortest distance between two colors and returns span of colors between them
 export const getSpanBetweenColors = (color1: number, color2: number): Array<ColorInterface> => {

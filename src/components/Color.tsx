@@ -5,26 +5,23 @@ interface ColorProps {
   colorName: string;
   colorCode: string;
   value?: number;
-  category: string;
-  isChildColor: boolean;
-}
+  category: 'primary' | 'secondary' | 'tertiary';
+};
 
-export default function Color({colorName, colorCode, value, category, isChildColor}: ColorProps) {
-  const dispatch = useDispatch()
-  const childColors = useSelector((state: any) => state.child.childColors);
-
-  const categoryMap = [
-    'Primary',
-    'Secondary',
-    'Tertiary',
-  ];
+export default function Color({colorName, colorCode, value, category}: ColorProps) {
+  const dispatch = useDispatch();
+  const child = useSelector((state: any) => state.dragons.child);
+  const childColor = child[category];
+  const isChildColor = value === childColor;
 
   const changeChildColor = () => {
-    const copy = [...childColors]
-    const index = categoryMap.indexOf(category)
-    copy[index] = value
-    dispatch({type: 'color/childColors', payload: copy})
-  }
+    dispatch({
+      type: 'dragon/childColors', 
+      payload: {
+        [category]: value,
+      }
+    });
+  };
 
   return (
     <div 
@@ -33,5 +30,5 @@ export default function Color({colorName, colorCode, value, category, isChildCol
       title={colorName}
       onClick={changeChildColor}
     />
-  )
+  );
 }
