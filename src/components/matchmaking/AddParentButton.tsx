@@ -1,5 +1,6 @@
-import { useDispatch } from 'react-redux';
-import store from '../store/store';
+import { useDispatch, useSelector } from 'react-redux';
+import store from '../../store/store';
+import '../../styles/MatchMakingButton.scss';
 
 interface AddParentButtonProps {
   id: 'mother' | 'father';
@@ -8,6 +9,13 @@ interface AddParentButtonProps {
 export default function AddParentButton({ id }: AddParentButtonProps) {
   const dispatch = useDispatch();
   const casedId = `${id[0].toUpperCase()}${id.slice(1)}`;
+  const disabled = useSelector((state: any) =>  {
+    const primary = state.dragons[id].primary > -1;
+    const secondary = state.dragons[id].secondary > -1;
+    const tertiary = state.dragons[id].tertiary > -1;
+    return !(primary && secondary && tertiary);
+  });
+
 
   const handleClick = () => {
     const state: any = store.getState();
@@ -30,6 +38,12 @@ export default function AddParentButton({ id }: AddParentButtonProps) {
   }
 
   return (
-    <button onClick={handleClick}>Add {casedId}</button>
+    <button 
+      className="matchmaking__button"
+      disabled={disabled}
+      onClick={handleClick}
+    >
+      Add {casedId}
+    </button>
   );
 }

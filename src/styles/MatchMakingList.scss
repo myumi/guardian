@@ -1,0 +1,15 @@
+.matchmaking__list {
+  ol {
+    padding: 0 0 0 16px;
+    text-align: left;
+    
+    li {
+      margin: 5px 0;
+    }
+
+    .matchmaking__empty-statement {
+      display: inline-block;
+      margin: 0 0 0 -16px;
+    }
+  }
+}

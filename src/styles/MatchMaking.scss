@@ -1,0 +1,46 @@
+@import '_spacing.scss';
+
+.matchmaking {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.matchmaking h1 {
+  display: block;
+  text-align: left;
+}
+
+.matchmaking__parents {
+  padding: 0 0 0 16px;
+
+  li {
+    margin: 0 0 8px 0;
+    -webkit-column-break-inside: avoid-column;
+    page-break-inside: avoid-column;
+    break-inside: avoid-column;
+  }
+
+  @include phone-landscape {
+    max-height: 700px;
+    columns: 200px auto;
+  }
+}
+
+.matchmaking__parents .matchmaking__parent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  cursor: pointer;
+  margin: 0 5px 0;
+
+  span {
+    margin: 0 5px 0 0;
+  }
+}
+
+.matchmaking__parents .matchmaking__empty-statement {
+  margin: 0 0 0 -16px;
+}

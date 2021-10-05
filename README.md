@@ -1,10 +1,17 @@
 ### To-Do
 **BUGS**
-* clean up redux types (use the dragon type over an array of colors)
+* add "removeparent" to ui and redux
+* add some sort of symbol for male/female saved dragons
+* auto-scroll when calculate parents is clicked
 
 **FEATURES**
-* show color traits next to dragon name on matchmaking screen
-* show suggestions to get better percentages
-* add notice about chances below 10% not being ideal
-* design UI
-* finish adding all colors to color wheel
+* useContext() for settings
+* save parents to a .json or .grdn file and be able to load them in
+
+**SETTINGS**
+* light mode / dark mode
+* borders around colors (no borders removes margins too)
+* text colors (on by default for mobile)
+* center or left aligned
+* rounding (2 - 5 places)
+* turn on/off auto-scrolling
