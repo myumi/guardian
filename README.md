@@ -1,12 +1,12 @@
 ### To-Do
 **BUGS**
-* add "removeparent" to ui and redux
-* add some sort of symbol for male/female saved dragons
-* auto-scroll when calculate parents is clicked
+* making styling.... nicer...
 
 **FEATURES**
 * useContext() for settings
 * save parents to a .json or .grdn file and be able to load them in
+* add "removeparent" to ui and redux
+* auto-scroll when calculate parents is clicked
 
 **SETTINGS**
 * light mode / dark mode
