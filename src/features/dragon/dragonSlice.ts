@@ -28,6 +28,9 @@ const initalState: RootState = {
 // 'dragon/fatherColors', [newColors] -> color & span update
 export default function dragonReducer(state: RootState = initalState, action: Action) {
   switch (action.type) {
+    // case 'dragon/setMother':
+    // case 'dragon/setFather':
+    // case 'dragon/setChild':
     case 'dragon/motherColors':
       if (isDragon(action.payload)) {
         return {
@@ -74,33 +77,22 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
         ...state,
       };
     case 'dragon/motherName':
-      if (!isDragon(action.payload)) {
-        return {
-          ...state,
-          mother: {
-            ...state.mother,
-            name: action.payload,
-          },
-        };
-      }
       return {
         ...state,
+        mother: {
+          ...state.mother,
+          name: action.payload,
+        },
       };
     case 'dragon/fatherName':
-      if (!isDragon(action.payload)) {
-        return {
-          ...state,
-          father: {
-            ...state.father,
-            name: action.payload,
-          },
-        };
-      }
       return {
         ...state,
+        father: {
+          ...state.father,
+          name: action.payload,
+        },
       };
     case 'dragon/childName':
-    if (!isDragon(action.payload)) {
       return {
         ...state,
         child: {
@@ -108,19 +100,21 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
           name: action.payload,
         },
       };
-    }
-    return {
-      ...state,
-    };
     case 'dragon/clearMother':
       return {
         ...state,
         mother:  {...INITAL_DRAGON},
+        primarySpan: [...initalState.primarySpan],
+        secondarySpan: [...initalState.secondarySpan],
+        tertiarySpan: [...initalState.primarySpan],
       };
     case 'dragon/clearFather':
       return {
         ...state,
         father: {...INITAL_DRAGON},
+        primarySpan: [...initalState.primarySpan],
+        secondarySpan: [...initalState.secondarySpan],
+        tertiarySpan: [...initalState.primarySpan],
       };
     case 'dragon/clearChild':
       return {
@@ -142,5 +136,18 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
 }
 
 function isDragon(item: any): item is Dragon {
-  return ((item as Dragon).primary !== undefined || (item as Dragon).secondary !== undefined || (item as Dragon).tertiary !== undefined);
+  const hasDragonProperty = (item as Dragon).name !== undefined
+    || (item as Dragon).primary !== undefined 
+    || (item as Dragon).secondary !== undefined 
+    || (item as Dragon).tertiary !== undefined;
+
+  const hasNonDragonProperty = Object.keys(item).some((key) => 
+    {
+      if (key !== 'name' && key !== 'primary' && key !== 'secondary' && key !== 'tertiary') {
+        return true;
+      }
+      return false;
+    });
+  
+  return (hasDragonProperty && !hasNonDragonProperty);
 }

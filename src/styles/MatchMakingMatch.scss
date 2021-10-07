@@ -1,0 +1,37 @@
+@import '_spacing.scss';
+
+.matchmaking__match {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+
+  margin: 0 0 8px;
+
+  .color {
+    margin-bottom: 0;
+    cursor: initial;
+    display: none;
+
+    @include phone-landscape {
+      display: inline-block;
+    }
+  }
+}
+
+.matchmaking__match .matchmaking__parent {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+
+  cursor: pointer;
+  margin: 0 5px 0;
+
+  span {
+    margin: 0 5px 0 0;
+  }
+}
+
+.matchmaking__match__chance {
+  font-weight: bold;
+  margin: 0 0 0 5px;
+}

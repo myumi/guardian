@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import '../styles/Color.css';
+import '../styles/Color.scss';
 
 interface ColorProps {
   colorName: string;

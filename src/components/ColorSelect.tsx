@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { colorWheel } from '../modules/ColorWheel';
 import store from '../store/store';
+import '../styles/ColorSelect.scss';
 interface ColorSelectProps {
   type: string;
   id: string;

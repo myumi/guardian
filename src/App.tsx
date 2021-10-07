@@ -2,18 +2,13 @@ import { useSelector } from 'react-redux';
 import Header from './components/Header';
 import Dragon from './components/Dragon';
 import ColorProbability from './components/ColorProbability';
-import MatchMaking from './components/MatchMaking';
-import AddParentButton from './components/AddParentButton';
-import CalculateButton from './components/CalculateButton';
-import './styles/App.css';
+import MatchMaking from './components/matchmaking/MatchMaking';
+import './styles/Guardian.scss';
 
 function App() {
   const mother = useSelector((state: any) => state.dragons.mother);
   const father = useSelector((state: any) => state.dragons.father);
   const child = useSelector((state: any) => state.dragons.child);
-
-  const motherParents = useSelector((state: any) => state.matchmaking.mothers);
-  const fatherParents = useSelector((state: any) => state.matchmaking.fathers);
 
   const primarySpan = useSelector((state: any) => state.dragons.primarySpan);
   const secondarySpan = useSelector((state: any) => state.dragons.secondarySpan);
@@ -26,27 +21,29 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div id="guardian">
       <Header />
       <main>
-        <div className="dragon--selectors">
-          <Dragon id="mother" dragon={mother} />
+        <div id="dragon__selectors">
           <Dragon id="father" dragon={father} />
+          <Dragon id="mother" dragon={mother} />
           <Dragon id="child" dragon={child} />
         </div>
 
-        <ColorProbability
-          id="primary"
-          span={primarySpan}
-        />
-        <ColorProbability
-          id="secondary"
-          span={secondarySpan}
-        />
-        <ColorProbability
-          id="tertiary"
-          span={tertiarySpan}
-        />
+        <div id="color-probabilities">
+          <ColorProbability
+            id="primary"
+            span={primarySpan}
+          />
+          <ColorProbability
+            id="secondary"
+            span={secondarySpan}
+          />
+          <ColorProbability
+            id="tertiary"
+            span={tertiarySpan}
+          />
+        </div>
 
         {
           primarySpan.length > 0 && 
@@ -54,18 +51,7 @@ function App() {
           tertiarySpan.length > 0 &&
           <h3>Total Chance for Specific Child: {getTotalPercentage(primarySpan.length, secondarySpan.length, tertiarySpan.length)}</h3> 
         }
-
-        {
-          motherParents.map((item: any) => <li key={item.name}>{item.name} {item.primary}</li>)
-        }
-
-        {
-          fatherParents.map((item: any) => <li key={item.name}>{item.name} {item.primary}</li>)
-        } 
-
-        <AddParentButton id="mother" />
-        <AddParentButton id="father" />
-        <CalculateButton />
+        
         <MatchMaking />
       </main>
     </div>
