@@ -1,4 +1,4 @@
-@import '_spacing.scss';
+@import '_breakpoints.scss';
 
 main {
   display: flex;
@@ -6,10 +6,9 @@ main {
   align-items: center;
 
   max-width: 750px;
-  margin: 0 2rem;
+  margin: 80px 2rem 0;
 
   @include phone-landscape {
-    margin: 0 auto;
     padding: 0 30px;
     max-width: 750px;
   }

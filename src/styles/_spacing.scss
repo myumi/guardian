@@ -1,53 +1,29 @@
-$break-phone-landscape: 480px;
-$break-tablet-portrait: 768px;
-$break-tablet-landscape: 992px;
-$break-desktop: 1200px;
-$break-desktop-hd: 1600px;
-$break-desktop-ultrawide: 2000px;
+// paddings & margins
+$spacing-1: 4px;
+$spacing-2: 8px;
+$spacing-3: 12px;
+$spacing-4: 16px;
+$spacing-5: 24px;
+$spacing-6: 32px;
+$spacing-7: 48px;
+$spacing-8: 64px;
+$spacing-9: 96px;
+$spacing-10: 128px;
+$spacing-11: 192px;
+$spacing-12: 256px;
+$spacing-13: 384px;
+$spacing-14: 512px;
+$spacing-15: 640px;
+$spacing-16: 768px;
 
-@mixin respond-to-width($breakpoint) {
-  @media only screen and (min-width: $breakpoint) {
-    @content;
-  }
-}
-
-@mixin respond-to-height($breakpoint) {
-  @media only screen and (min-height: $breakpoint) {
-    @content;
-  }
-}
-
-@mixin phone-landscape {
-  @include respond-to-width($break-phone-landscape) {
-    @content;
-  }
-}
-@mixin tablet-portrait {
-  @include respond-to-width($break-tablet-portrait) {
-    @content;
-  }
-}
-
-@mixin tablet-landscape {
-  @include respond-to($break-tablet-landscape) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @include respond-to-width($break-desktop) {
-    @content;
-  }
-}
-
-@mixin desktop-hd {
-  @include respond-to-width($break-desktop-hd) {
-    @content;
-  }
-}
-
-@mixin desktop-ultrawide {
-  @include respond-to-width($break-desktop-ultrawide) {
-    @content;
-  }
-}
+$font-size-1: 12px; // subtext-1
+$font-size-2: 14px; // subtext-2
+$font-size-3: 16px; // subtext-3
+$font-size-4: 18px; // para-1
+$font-size-5: 20px; // para-2
+$font-size-6: 24px; // para-3
+$font-size-7: 30px; // header-1
+$font-size-8: 36px; // header-2
+$font-size-9: 48px; // header-3
+$font-size-10: 60px; // header-4
+$font-size-11: 72px; // header-5
