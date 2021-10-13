@@ -1,16 +1,13 @@
 @import '_breakpoints.scss';
+@import '_spacing.scss';
 
 .color-probability {
-  margin: 5px 0 20px;
+
 }
 
 .color-probability h2 {
-  font-size: 22px;
-  margin: 30px 0 12px;
-
-  @include phone-landscape {
-    margin: 0 0 16px;
-  }
+  font-size: $font-size-4;
+  margin: 0 0 $spacing-2;
 }
 
 .color-probability .colors {
@@ -18,4 +15,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+
+  font-size: $font-size-3;
 }

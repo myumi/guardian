@@ -1,14 +1,31 @@
-@import '_colors.scss';
+
 @import '_breakpoints.scss';
+@import '_themes.scss';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 body {
+  background-color: $light-theme-3;
   box-sizing: border-box;
-  color: $grey5;
+  color: $light-theme-text-2;
   margin: 0;
   font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: $light-theme-text-1;
+}
+
+button {
+  background-color: $light-theme-accent-1;
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: $light-theme-2;
+  cursor: pointer;
+  font-weight: bolder;
+  letter-spacing: 0.5px;
 }
