@@ -1,7 +1,6 @@
 ### To-Do
 **BUGS**
 * making styling.... nicer...
-* put matchmaking feature back lol
 * align credits to bottom of page (footer)
 
 **FEATURES**

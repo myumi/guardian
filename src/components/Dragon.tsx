@@ -34,11 +34,6 @@ export default function Dragon({ id, dragon }: DragonProps) {
       <ColorSelect id={id} type="primary" />
       <ColorSelect id={id} type="secondary" />
       <ColorSelect id={id} type="tertiary" />
-      {
-        (id === 'mother' || id === 'father') 
-        ? <AddParentButton id={id} />
-        : <CalculateButton />
-      }
     </section>
   );
 };

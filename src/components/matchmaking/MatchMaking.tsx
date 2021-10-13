@@ -2,8 +2,9 @@ import { Dragon as DragonType } from 'guardian';
 import { useSelector } from 'react-redux';
 import MatchMakingList from './MatchMakingList';
 import MatchMakingParent from './MatchMakingParent';
+import AddParentButton from './AddParentButton';
+import CalculateButton from './CalculateButton';
 import '../../styles/MatchMaking.scss'
-import ColorProbability from '../ColorProbability';
 import Dragon from '../Dragon';
 
 export default function MatchMaking() {
@@ -17,9 +18,20 @@ export default function MatchMaking() {
   
   return (
     <section className="matchmaking">
-      <Dragon id="father" dragon={father} />
-      <Dragon id="mother" dragon={mother} />
-      <Dragon id="child" dragon={child} />
+      <div className="matchmaking__dragons">
+        <div>        
+          <Dragon id="father" dragon={father} />
+          <AddParentButton id='father' />
+        </div>
+        <div>
+          <Dragon id="mother" dragon={mother} />
+          <AddParentButton id='mother' />
+        </div>
+        <div>
+          <Dragon id="child" dragon={child} />
+          <CalculateButton />
+        </div>
+      </div>
       
       <div className="matchmaking__tier">
         <h1>Saved Parents for Matchmaking</h1>
