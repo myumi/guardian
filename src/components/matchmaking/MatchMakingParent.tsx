@@ -23,13 +23,11 @@ export default function MatchMakingParent({ dragon, sex }: MatchMakingParentInte
   return (
     <span className="matchmaking__parent">
       <span onClick={setParent}>
-        {name}
+        <span className="matchmaking__parent__name">{name}</span>
         {
           (sex === "mother")
-          // ? <img alt="Female symbol" src="https://www1.flightrising.com/static/layout/lair/icons/female.png" />
-          // : <img alt="Male symbol" src="https://www1.flightrising.com/static/layout/lair/icons/male.png" />
-          ? " ♀"
-          : " ♂"
+            ? " ♀"
+            : " ♂"
         }
       </span>
       <Color colorName={pName} colorCode={pCode} value={pValue} category="primary" />

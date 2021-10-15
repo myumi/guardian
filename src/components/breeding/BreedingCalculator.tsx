@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import Dragon from '../Dragon';
 import ColorProbability from '../ColorProbability';
 import '../../styles/BreedingCalculator.scss';
+import BreedProbability from '../BreedProbability';
 
 export default function Guardian() {
   const mother = useSelector((state: any) => state.dragons.mother);
@@ -41,7 +42,7 @@ export default function Guardian() {
               span={tertiarySpan}
             />
 
-            
+            <BreedProbability />
           </div>
           <div className="results__col"></div>
           <div className="results__total"></div>

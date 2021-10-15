@@ -1,10 +1,10 @@
-import { Dragon } from 'guardian';
+import { Dragon, ModernBreed } from 'guardian';
 import { ColorInterface } from '../../modules/types/types';
 import { getSpanBetweenColors } from '../../modules/ColorWheel';
 import { INITAL_DRAGON } from '../../types/constants';
 interface Action {
   type: string,
-  payload?: Dragon | string | number,
+  payload?: Dragon | string | number | ModernBreed,
 }
 export interface RootState {
   mother: Dragon,
@@ -31,6 +31,30 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
     // case 'dragon/setMother':
     // case 'dragon/setFather':
     // case 'dragon/setChild':
+    case 'dragon/motherName':
+      return {
+        ...state,
+        mother: {
+          ...state.mother,
+          name: action.payload,
+        },
+      };
+    case 'dragon/fatherName':
+      return {
+        ...state,
+        father: {
+          ...state.father,
+          name: action.payload,
+        },
+      };
+    case 'dragon/childName':
+      return {
+        ...state,
+        child: {
+          ...state.child,
+          name: action.payload,
+        },
+      };
     case 'dragon/motherColors':
       if (isDragon(action.payload)) {
         return {
@@ -76,30 +100,30 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
       return {
         ...state,
       };
-    case 'dragon/motherName':
-      return {
-        ...state,
-        mother: {
-          ...state.mother,
-          name: action.payload,
-        },
-      };
-    case 'dragon/fatherName':
-      return {
-        ...state,
-        father: {
-          ...state.father,
-          name: action.payload,
-        },
-      };
-    case 'dragon/childName':
-      return {
-        ...state,
-        child: {
-          ...state.child,
-          name: action.payload,
-        },
-      };
+      case 'dragon/motherBreed':
+        return {
+          ...state,
+          mother: {
+            ...state.mother,
+            breed: action.payload,
+          },
+        };
+      case 'dragon/fatherBreed':
+        return {
+          ...state,
+          father: {
+            ...state.father,
+            breed: action.payload,
+          },
+        };
+      case 'dragon/childBreed':
+        return {
+          ...state,
+          child: {
+            ...state.child,
+            breed: action.payload,
+          },
+        };
     case 'dragon/clearMother':
       return {
         ...state,

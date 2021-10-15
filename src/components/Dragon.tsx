@@ -2,8 +2,7 @@ import ColorSelect from './ColorSelect';
 import { Dragon as DragonType } from 'guardian';
 import '../styles/Dragon.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import AddParentButton from './matchmaking/AddParentButton';
-import CalculateButton from './matchmaking/CalculateButton';
+import BreedSelect from './BreedSelect';
 interface DragonProps {
   id: string;
   dragon: DragonType;
@@ -31,6 +30,7 @@ export default function Dragon({ id, dragon }: DragonProps) {
         placeholder={`${id}'s name/ID`}
         onChange={handleChange}
       />
+      <BreedSelect id={id} />
       <ColorSelect id={id} type="primary" />
       <ColorSelect id={id} type="secondary" />
       <ColorSelect id={id} type="tertiary" />

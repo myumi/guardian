@@ -1,7 +1,5 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { colorWheel } from '../modules/ColorWheel';
-import store from '../store/store';
-import '../styles/ColorSelect.scss';
 interface ColorSelectProps {
   type: string;
   id: string;
@@ -9,8 +7,7 @@ interface ColorSelectProps {
 
 export default function ColorSelect({ type, id } : ColorSelectProps) {
   const dispatch = useDispatch();
-  const state: any = store.getState();
-  const value = state.dragons[id][type];
+  const value = useSelector((state: any) => state.dragons[id][type]);
 
   // when user changes color, update the store
   const handleChange = (event: any) => {

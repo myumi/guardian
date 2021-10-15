@@ -1,6 +1,8 @@
 /// <reference types="guardian" />
 declare module "guardian" {
 
+  type Rarity = 'Plentiful' | 'Common' | 'Uncommon' | 'Limited' | 'Rare';
+
   type ModernBreed = 'Fae' | 'Guardian' | 'Mirror' | 
   'Tundra' | 'Pearlcatcher' | 'Snapper' | 'Ridgeback' | 
   'Spiral' | 'Skydancer' | 'Bogsneak' | 'Obelisk' |

@@ -51,7 +51,7 @@ export default function Guardian() {
       <p>If you're a developer feel free open an issue or make a pull request on <a href="https://github.com/myumi/guardian">the repository for this project on Github</a>.</p>
       <p>If you're a designer, feel free to PM in-game or send me an email which is listed on <a href="https://github.com/myumi">my GitHub profile</a> with 'Guardian Design' in the title of the email.</p>
       <p>Please note that I may not accept the changes you request or build for various reasons, but I am open to most improvements.</p>
-      <p>If you are neither of those but still want to help out, you can fund this project with <a>Ko-Fi donations</a> (hosting and such is not cheap) or by <a href="https://www1.flightrising.com/lair/192868/2018561?name=&type=undefined">buying my hatchlings</a>.</p>
+      <p>If you are neither of those but still want to help out, you can fund this project with <a href="https://ko-fi.com/umimay">Ko-Fi donations</a> (hosting and such is not cheap) or by <a href="https://www1.flightrising.com/lair/192868/2018561?name=&type=undefined">buying my hatchlings</a>.</p>
     </section>
   );
 };

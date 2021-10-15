@@ -1,0 +1,36 @@
+@import '_breakpoints.scss';
+@import '_spacing.scss';
+@import '_themes.scss';
+
+.breed-probability {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+}
+
+.breed-probability__parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  img {
+    border: 3px solid transparent;
+    width: 100px;
+
+    @include phone-landscape {
+      width: 180px;
+    }
+  }
+}
+
+.breed-probability__parent.selected {
+  font-weight: bold;
+
+  img {
+    border: 3px solid;
+  }
+}
