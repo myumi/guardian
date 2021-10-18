@@ -7,7 +7,6 @@ interface BreedSelectProps {
 export default function BreedSelect({ id } : BreedSelectProps) {
   const dispatch = useDispatch();
   const breed = useSelector((state: any) => state.dragons[id].breed);
-  console.log(id, breed);
 
   const modernBreeds = ['Fae', 'Guardian', 'Mirror', 
   'Tundra', 'Pearlcatcher', 'Snapper', 'Ridgeback',

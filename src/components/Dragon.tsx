@@ -1,8 +1,9 @@
+import { useDispatch, useSelector } from 'react-redux';
+import BreedSelect from './BreedSelect';
+import GeneSelect from './GeneSelect';
 import ColorSelect from './ColorSelect';
 import { Dragon as DragonType } from 'guardian';
 import '../styles/Dragon.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import BreedSelect from './BreedSelect';
 interface DragonProps {
   id: string;
   dragon: DragonType;
@@ -30,10 +31,22 @@ export default function Dragon({ id, dragon }: DragonProps) {
         placeholder={`${id}'s name/ID`}
         onChange={handleChange}
       />
-      <BreedSelect id={id} />
-      <ColorSelect id={id} type="primary" />
-      <ColorSelect id={id} type="secondary" />
-      <ColorSelect id={id} type="tertiary" />
+
+      <div className="dragon__section">
+        <BreedSelect id={id} />
+      </div>
+
+      <div className="dragon__section">
+        <ColorSelect id={id} type="primary" />
+        <ColorSelect id={id} type="secondary" />
+        <ColorSelect id={id} type="tertiary" />
+      </div>
+
+      <div className="dragon__section">
+        <GeneSelect id={id} type="primary" />
+        <GeneSelect id={id} type="secondary" />
+        <GeneSelect id={id} type="tertiary" />
+      </div>
     </section>
   );
 };

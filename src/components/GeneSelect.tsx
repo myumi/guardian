@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { MODERN_PRIMARY_GENES } from '../types/constants';
+import { MODERN_PRIMARY_GENES, MODERN_SECONDARY_GENES, MODERN_TERTIARY_GENES } from '../types/constants';
 interface GeneSelectProps {
   type: string; // primary, secondary, tertiary
   id: string; // mother, father, child
@@ -12,11 +12,15 @@ export default function GeneSelect({ type, id } : GeneSelectProps) {
 
   if (type === 'primary') {
     geneList = {...MODERN_PRIMARY_GENES};
+  } else if (type === 'secondary') {
+    geneList = {...MODERN_SECONDARY_GENES};
+  } else if (type === 'tertiary') {
+    geneList = {...MODERN_TERTIARY_GENES};
   }
 
   // when user changes gene, update the store
   const handleChange = (event: any) => {
-    dispatch({type: `dragon/${id}Genes`, payload: { [type]: event.target.value }});
+    dispatch({type: `dragon/${id}Genes`, payload: { genes: {[type]: event.target.value } }});
   };
 
   return (

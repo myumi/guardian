@@ -11,7 +11,7 @@ export default function ColorSelect({ type, id } : ColorSelectProps) {
 
   // when user changes color, update the store
   const handleChange = (event: any) => {
-    dispatch({type: `dragon/${id}Colors`, payload: {colors: { [type]: +event.target.value } }});
+    dispatch({ type: `dragon/${id}Colors`, payload: { colors: { [type]: +event.target.value } } });
   };
 
   return (

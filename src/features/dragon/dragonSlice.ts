@@ -62,7 +62,10 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
           ...state,
           mother: {
             ...state.mother,
-            ...action.payload,
+            colors: {
+              ...state.mother.colors,
+              ...action.payload.colors,
+            }
           },
           primarySpan: [...getSpanBetweenColors(action.payload.colors.primary || state.mother.colors.primary, state.father.colors.primary)],
           secondarySpan: [...getSpanBetweenColors(action.payload.colors.secondary || state.mother.colors.secondary, state.father.colors.secondary)],
@@ -78,7 +81,10 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
           ...state,
           father: {
             ...state.father,
-            ...action.payload,
+            colors: {
+              ...state.father.colors,
+              ...action.payload.colors,
+            }
           },
           primarySpan: [...getSpanBetweenColors(action.payload.colors.primary || state.father.colors.primary, state.mother.colors.primary)],
           secondarySpan: [...getSpanBetweenColors(action.payload.colors.secondary || state.father.colors.secondary, state.mother.colors.secondary)],
@@ -94,7 +100,10 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
           ...state,
           child: {
             ...state.child,
-            ...action.payload
+            colors: {
+              ...state.child.colors,
+              ...action.payload.colors,
+            }
           },
         };
       }
@@ -129,14 +138,19 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
     // change genes (todo: logic for different breeds)
     case 'dragon/motherGenes':
       if (isDragon(action.payload)) {
+        console.log('poassed dragon btest')
         return {
           ...state,
           mother: {
             ...state.mother,
-            ...action.payload,
+            genes: {
+              ...state.mother.genes,
+              ...action.payload.genes,
+            }
           },
         };
       }
+      console.log('failed')
       return {
         ...state,
       };
@@ -146,7 +160,10 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
           ...state,
           father: {
             ...state.father,
-            ...action.payload,
+            genes: {
+              ...state.father.genes,
+              ...action.payload.genes,
+            },
           },
         };
       }
@@ -159,7 +176,10 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
           ...state,
           child: {
             ...state.child,
-            ...action.payload
+            genes: {
+              ...state.child.genes,
+              ...action.payload.genes,
+            }
           },
         };
       }
@@ -204,9 +224,18 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
 
 function isDragon(item: any): item is Dragon {
   const hasDragonProperty = (item as Dragon).name !== undefined
-    || (item as Dragon).colors.primary !== undefined 
-    || (item as Dragon).colors.secondary !== undefined 
-    || (item as Dragon).colors.tertiary !== undefined;
+    || (
+      (item as Dragon).colors !== undefined
+      && ((item as Dragon).colors.primary !== undefined 
+      || (item as Dragon).colors.secondary !== undefined 
+      || (item as Dragon).colors.tertiary !== undefined)
+    )
+    || (
+      (item as Dragon).genes !== undefined
+      && ((item as Dragon).genes!.primary !== undefined 
+      || (item as Dragon).genes!.secondary !== undefined 
+      || (item as Dragon).genes!.tertiary !== undefined)
+    );
 
   const hasNonDragonProperty = Object.keys(item).some((key) => 
     {
@@ -231,4 +260,8 @@ function isDragon(item: any): item is Dragon {
     });
   
   return (hasDragonProperty && !hasNonDragonProperty);
+}
+
+function outcomeChance(): number {
+  return 0;
 }

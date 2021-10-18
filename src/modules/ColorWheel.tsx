@@ -890,7 +890,7 @@ export const getSpanBetweenColors = (color1: number, color2: number): Array<Colo
   let span = [{...colorWheel[currentColor], value: currentColor}]; // default span is single color
 
   // SHORT CIRCUIT
-  if (color1 > colorWheel.length || color2  > colorWheel.length || color1 < 0 || color2 < 0) {
+  if (color1 > colorWheel.length || color2  > colorWheel.length || color1 < 0 || color2 < 0 || !color1 || !color2) {
     return [];
   }
 
