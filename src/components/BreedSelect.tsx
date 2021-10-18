@@ -4,7 +4,7 @@ interface BreedSelectProps {
   id: string;
 };
 
-export default function ColorSelect({ id } : BreedSelectProps) {
+export default function BreedSelect({ id } : BreedSelectProps) {
   const dispatch = useDispatch();
   const breed = useSelector((state: any) => state.dragons[id].breed);
   console.log(id, breed);

@@ -13,6 +13,7 @@ export interface RootState {
   primarySpan: Array<ColorInterface>;
   secondarySpan: Array<ColorInterface>;
   tertiarySpan: Array<ColorInterface>;
+  outcomeChance: number;
 }
 
 const initalState: RootState = {
@@ -22,15 +23,14 @@ const initalState: RootState = {
   primarySpan: [] as Array<ColorInterface>,
   secondarySpan: [] as Array<ColorInterface>,
   tertiarySpan: [] as Array<ColorInterface>,
+  outcomeChance: 0,
 }
 
 // 'dragon/motherColors', [newColors] -> color & span update
 // 'dragon/fatherColors', [newColors] -> color & span update
 export default function dragonReducer(state: RootState = initalState, action: Action) {
   switch (action.type) {
-    // case 'dragon/setMother':
-    // case 'dragon/setFather':
-    // case 'dragon/setChild':
+    // change names
     case 'dragon/motherName':
       return {
         ...state,
@@ -55,6 +55,7 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
           name: action.payload,
         },
       };
+    // change colors
     case 'dragon/motherColors':
       if (isDragon(action.payload)) {
         return {
@@ -63,9 +64,9 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
             ...state.mother,
             ...action.payload,
           },
-          primarySpan: [...getSpanBetweenColors(action.payload.primary || state.mother.primary, state.father.primary)],
-          secondarySpan: [...getSpanBetweenColors(action.payload.secondary || state.mother.secondary, state.father.secondary)],
-          tertiarySpan: [...getSpanBetweenColors(action.payload.tertiary || state.mother.tertiary, state.father.tertiary)],
+          primarySpan: [...getSpanBetweenColors(action.payload.colors.primary || state.mother.colors.primary, state.father.colors.primary)],
+          secondarySpan: [...getSpanBetweenColors(action.payload.colors.secondary || state.mother.colors.secondary, state.father.colors.secondary)],
+          tertiarySpan: [...getSpanBetweenColors(action.payload.colors.tertiary || state.mother.colors.tertiary, state.father.colors.tertiary)],
         };
       }
       return {
@@ -79,9 +80,9 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
             ...state.father,
             ...action.payload,
           },
-          primarySpan: [...getSpanBetweenColors(action.payload.primary || state.father.primary, state.mother.primary)],
-          secondarySpan: [...getSpanBetweenColors(action.payload.secondary || state.father.secondary, state.mother.secondary)],
-          tertiarySpan: [...getSpanBetweenColors(action.payload.tertiary || state.father.tertiary, state.mother.tertiary)],
+          primarySpan: [...getSpanBetweenColors(action.payload.colors.primary || state.father.colors.primary, state.mother.colors.primary)],
+          secondarySpan: [...getSpanBetweenColors(action.payload.colors.secondary || state.father.colors.secondary, state.mother.colors.secondary)],
+          tertiarySpan: [...getSpanBetweenColors(action.payload.colors.tertiary || state.father.colors.tertiary, state.mother.colors.tertiary)],
         };
       }
       return {
@@ -100,30 +101,72 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
       return {
         ...state,
       };
-      case 'dragon/motherBreed':
+    // change breed
+    case 'dragon/motherBreed':
+      return {
+        ...state,
+        mother: {
+          ...state.mother,
+          breed: action.payload,
+        },
+      };
+    case 'dragon/fatherBreed':
+      return {
+        ...state,
+        father: {
+          ...state.father,
+          breed: action.payload,
+        },
+      };
+    case 'dragon/childBreed':
+      return {
+        ...state,
+        child: {
+          ...state.child,
+          breed: action.payload,
+        },
+      };
+    // change genes (todo: logic for different breeds)
+    case 'dragon/motherGenes':
+      if (isDragon(action.payload)) {
         return {
           ...state,
           mother: {
             ...state.mother,
-            breed: action.payload,
+            ...action.payload,
           },
         };
-      case 'dragon/fatherBreed':
+      }
+      return {
+        ...state,
+      };
+    case 'dragon/fatherGenes':
+      if (isDragon(action.payload)) {
         return {
           ...state,
           father: {
             ...state.father,
-            breed: action.payload,
+            ...action.payload,
           },
         };
-      case 'dragon/childBreed':
+      }
+      return {
+        ...state,
+      };
+    case 'dragon/childGenes':
+      if (isDragon(action.payload)) {
         return {
           ...state,
           child: {
             ...state.child,
-            breed: action.payload,
+            ...action.payload
           },
         };
+      }
+      return {
+        ...state,
+      };
+    // reset attributes
     case 'dragon/clearMother':
       return {
         ...state,
@@ -161,14 +204,28 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
 
 function isDragon(item: any): item is Dragon {
   const hasDragonProperty = (item as Dragon).name !== undefined
-    || (item as Dragon).primary !== undefined 
-    || (item as Dragon).secondary !== undefined 
-    || (item as Dragon).tertiary !== undefined;
+    || (item as Dragon).colors.primary !== undefined 
+    || (item as Dragon).colors.secondary !== undefined 
+    || (item as Dragon).colors.tertiary !== undefined;
 
   const hasNonDragonProperty = Object.keys(item).some((key) => 
     {
-      if (key !== 'name' && key !== 'primary' && key !== 'secondary' && key !== 'tertiary') {
+      if (key !== 'name' && key !== 'colors' && key !== 'genes') {
         return true;
+      } else if (key === 'colors') {
+        return Object.keys(item.colors).some((innerKey) => {
+          if (innerKey !== 'primary' && innerKey !== 'secondary' && innerKey !== 'tertiary') {
+            return true;
+          }
+          return false;
+        });
+      } else if (key === 'genes') {
+        return Object.keys(item.genes).some((innerKey) => {
+          if (innerKey !== 'primary' && innerKey !== 'secondary' && innerKey !== 'tertiary') {
+            return true;
+          }
+          return false;
+        });
       }
       return false;
     });

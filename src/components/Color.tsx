@@ -10,15 +10,16 @@ interface ColorProps {
 
 export default function Color({colorName, colorCode, value, category}: ColorProps) {
   const dispatch = useDispatch();
-  const child = useSelector((state: any) => state.dragons.child);
-  const childColor = child[category];
+  const childColor = useSelector((state: any) => state.dragons.child.colors[category]);
   const isChildColor = value === childColor;
 
   const changeChildColor = () => {
     dispatch({
       type: 'dragon/childColors', 
       payload: {
-        [category]: value,
+        colors: {
+          [category]: value,
+        },
       }
     });
   };

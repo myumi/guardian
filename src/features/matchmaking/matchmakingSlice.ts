@@ -91,12 +91,12 @@ function calculateAllParentProbability(mothers: Array<Dragon>, fathers: Array<Dr
   // nested for loop??
   mothers.forEach(mother => {
     fathers.forEach(father => {
-      const x = getSpanBetweenColors(mother.primary, father.primary);
-      const y = getSpanBetweenColors(mother.secondary, father.secondary);
-      const z = getSpanBetweenColors(mother.tertiary, father.tertiary);
-      const chanceOfX = calculateColorProbability(x, child.primary);
-      const chanceOfY = calculateColorProbability(y, child.secondary);
-      const chanceOfZ = calculateColorProbability(z, child.tertiary);
+      const x = getSpanBetweenColors(mother.colors.primary, father.colors.primary);
+      const y = getSpanBetweenColors(mother.colors.secondary, father.colors.secondary);
+      const z = getSpanBetweenColors(mother.colors.tertiary, father.colors.tertiary);
+      const chanceOfX = calculateColorProbability(x, child.colors.primary);
+      const chanceOfY = calculateColorProbability(y, child.colors.secondary);
+      const chanceOfZ = calculateColorProbability(z, child.colors.tertiary);
 
       // only push to array if probability is not zero
       if (chanceOfX) {

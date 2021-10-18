@@ -110,7 +110,3 @@ export default function BreedProbability() {
     </section>
   );
 }
-
-function dispatch(arg0: { type: string; payload: ModernBreed; }) {
-  throw new Error('Function not implemented.');
-}

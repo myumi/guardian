@@ -11,7 +11,7 @@ interface MatchMakingParentInterface {
 
 export default function MatchMakingParent({ dragon, sex }: MatchMakingParentInterface) {
   const dispatch = useDispatch();
-  const { primary, secondary, tertiary, name } = dragon;
+  const { colors: { primary, secondary, tertiary }, name } = dragon;
   const { colorName: pName, colorCode: pCode, value: pValue } = colorWheel[primary];
   const { colorName: sName, colorCode: sCode, value: sValue } = colorWheel[secondary];
   const { colorName: tName, colorCode: tCode, value: tValue } = colorWheel[tertiary];

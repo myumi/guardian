@@ -1,17 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { colorWheel } from '../modules/ColorWheel';
 interface ColorSelectProps {
-  type: string;
-  id: string;
+  type: string; // primary, secondary, tertiary
+  id: string; // mother, father, child
 };
 
 export default function ColorSelect({ type, id } : ColorSelectProps) {
   const dispatch = useDispatch();
-  const value = useSelector((state: any) => state.dragons[id][type]);
+  const value = useSelector((state: any) => state.dragons[id].colors[type]);
 
   // when user changes color, update the store
   const handleChange = (event: any) => {
-    dispatch({type: `dragon/${id}Colors`, payload: {[type]: +event.target.value}});
+    dispatch({type: `dragon/${id}Colors`, payload: {colors: { [type]: +event.target.value } }});
   };
 
   return (

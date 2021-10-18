@@ -4,9 +4,18 @@ import { Dragon } from 'guardian';
 
 export const INITAL_DRAGON: Dragon = {
   name: '',
-  primary: -1,
-  secondary: -1,
-  tertiary: -1,
+  colors: {
+    primary: -1,
+    secondary: -1,
+    tertiary: -1,
+  },
+  genes: {
+    primary: -1,
+    secondary: -1,
+    tertiary: -1,
+  },
+  sex: undefined,
+  breed: undefined,
 };
 
   // read like: plentiful against rare -> plentiful percentage
@@ -46,4 +55,42 @@ export const INITAL_DRAGON: Dragon = {
       limited: .03,
       rare: .5,
     },
+  };
+
+  export const MODERN_PRIMARY_GENES = {
+    'Basic': 'plentiful',
+    'Bar': 'uncommon', 
+    'Cherub': 'uncommon', 
+    'Clown': 'common', 
+    'Crystal': 'rare', 
+    'Fade': 'common', 
+    'Falcon': 'common', 
+    'Flaunt': 'uncommon', 
+    'Giraffe': 'uncommon', 
+    'Iridescent': 'rare', 
+    'Jaguar': 'uncommon', 
+    'Jupiter': 'uncommon', 
+    'Laced': 'common', 
+    'Leopard': 'common', 
+    'Lionfish': 'uncommon', 
+    'Metallic': 'rare', 
+    'Mosaic': 'uncommon', 
+    'Petals': 'rare', 
+    'Piebald': 'common',
+    'Pinstripe': 'limited', 
+    'Poison': 'limited', 
+    'Python': 'uncommon', 
+    'Ribbon': 'common', 
+    'Ripple': 'uncommon', 
+    'Savannah': 'common', 
+    'Skink': 'limited', 
+    'Slime': 'limited', 
+    'Speckle': 'common', 
+    'Starmap': 'rare', 
+    'Stitched': 'limited', 
+    'Swirl': 'common', 
+    'Tapir': 'common', 
+    'Tiger': 'common', 
+    'Vipera': 'uncommon', 
+    'Wasp': 'rare',
   };

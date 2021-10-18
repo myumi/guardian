@@ -11,14 +11,18 @@ declare module "guardian" {
   type AcientBreed = 'Gaoler' | 'Banescale' | 'Veilspun';
   export interface Dragon {
     name: string;
-    primary: number;
-    secondary: number;
-    tertiary: number;
-    sex?: undefined | 'female' | 'male';
-    breed?: undefined | ModernBreed | AncientBreed;
-    primaryGene?: undefined | ModernPrimaryGene;
-    secondaryGene?: undefined | ModernSecondaryGene;
-    tertiaryGene?: undefined | ModernTertiaryGene;
+    colors: {
+      primary: number;
+      secondary: number;
+      tertiary: number;
+    };
+    genes?: {
+      primary?: ModernPrimaryGene;
+      secondary?: ModernSecondaryGene;
+      tertiary?: ModernTertiaryGene;
+    }
+    sex?: 'female' | 'male';
+    breed?: ModernBreed | AncientBreed;
   };
   
   export interface Match {
