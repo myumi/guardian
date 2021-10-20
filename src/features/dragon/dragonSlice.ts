@@ -138,7 +138,6 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
     // change genes (todo: logic for different breeds)
     case 'dragon/motherGenes':
       if (isDragon(action.payload)) {
-        console.log('poassed dragon btest')
         return {
           ...state,
           mother: {
@@ -150,7 +149,6 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
           },
         };
       }
-      console.log('failed')
       return {
         ...state,
       };
@@ -172,6 +170,7 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
       };
     case 'dragon/childGenes':
       if (isDragon(action.payload)) {
+        console.log('poassed dragon btest')
         return {
           ...state,
           child: {

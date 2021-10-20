@@ -3,6 +3,7 @@ import Dragon from '../Dragon';
 import ColorProbability from '../ColorProbability';
 import '../../styles/BreedingCalculator.scss';
 import BreedProbability from '../BreedProbability';
+import GeneProbability from '../GeneProbability';
 
 export default function Guardian() {
   const mother = useSelector((state: any) => state.dragons.mother);
@@ -22,8 +23,8 @@ export default function Guardian() {
   return (
     <section id="breeding-calculator">
         <div id="breeding-calculator__selectors">
-          <Dragon id="father" dragon={father} />
           <Dragon id="mother" dragon={mother} />
+          <Dragon id="father" dragon={father} />
           <Dragon id="child" dragon={child} />
         </div>
 
@@ -44,7 +45,11 @@ export default function Guardian() {
 
             <BreedProbability />
           </div>
-          <div className="results__col"></div>
+          <div className="results__col">
+            <GeneProbability type={'primary'} />
+            <GeneProbability type={'secondary'} />
+            <GeneProbability type={'tertiary'} />
+          </div>
           <div className="results__total"></div>
         </div>
     </section>

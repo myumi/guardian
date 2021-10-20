@@ -19,13 +19,13 @@ export default function MatchMaking() {
   return (
     <section className="matchmaking">
       <div className="matchmaking__dragons">
-        <div>        
-          <Dragon id="father" dragon={father} />
-          <AddParentButton id='father' />
-        </div>
         <div>
           <Dragon id="mother" dragon={mother} />
           <AddParentButton id='mother' />
+        </div>
+        <div>        
+          <Dragon id="father" dragon={father} />
+          <AddParentButton id='father' />
         </div>
         <div>
           <Dragon id="child" dragon={child} />

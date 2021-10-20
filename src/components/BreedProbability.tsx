@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ModernBreed, Rarity } from 'guardian';
-import { RARITY_CHART } from '../types/constants';
+import { MODERN_BREEDS, RARITY_CHART } from '../types/constants';
 import '../styles/BreedProbability.scss';
 
 export default function BreedProbability() {
@@ -18,31 +18,10 @@ export default function BreedProbability() {
   const fatherBreedImage = fatherBreed ? getDragonImage(fatherBreed, maleBreedImages) : '';
   const motherBreedImage = motherBreed? getDragonImage(motherBreed, femaleBreedImages) : '';
 
-  function findBreedRarity(breed: ModernBreed): Rarity | 'None' {
-    const plentifulBreeds = ['Fae', 'Guardian', 'Mirror', 'Tundra'];
-    const commonBreeds = ['Pearlcatcher', 'Ridgeback', 'Snapper', 'Spiral'];
-    const uncommonBreeds = ['Bogsneak', 'Skydancer'];
-    const limitedBreeds = ['Imperial', 'Nocturne'];
-    const rareBreeds = ['Coatl', 'Wildclaw'];
-
-    if (plentifulBreeds.includes(breed)) {
-      return 'Plentiful';
-    } else if (commonBreeds.includes(breed)) {
-      return 'Common';
-    } else if (uncommonBreeds.includes(breed)) {
-      return 'Uncommon';
-    } else if (limitedBreeds.includes(breed)) {
-      return 'Limited';
-    } else if (rareBreeds.includes(breed)) {
-      return 'Rare';
-    }
-    return 'None';
-  }
-
   function calculateBreedChance(breed1: ModernBreed, breed2: ModernBreed): number {
     if (breed1 && breed2) {
-      const breed1Rarity = findBreedRarity(breed1).toLowerCase();
-      const breed2Rarity  = findBreedRarity(breed2).toLowerCase();
+      const breed1Rarity = MODERN_BREEDS[breed1].toLowerCase();
+      const breed2Rarity  = MODERN_BREEDS[breed2].toLowerCase();
   
       // todo: fix this, make typescript understand
       return (RARITY_CHART as any)[breed1Rarity][breed2Rarity];
@@ -74,7 +53,10 @@ export default function BreedProbability() {
   }
 
   function handleChildSelection(breed: ModernBreed) {
-    dispatch({type: 'dragon/childBreed', payload: breed});
+    dispatch({
+      type: 'dragon/childBreed', 
+      payload: breed
+    });
   };
 
   // todo: if mother and father breed are the same
@@ -85,15 +67,15 @@ export default function BreedProbability() {
         !!((fatherBreedChance && motherBreedChance) && !(motherBreed === fatherBreed))
         &&       
         <>
+        <div className={`breed-probability__parent ${motherBreed === childBreed ? 'selected' : ''}`} onClick={() => handleChildSelection(motherBreed)}>
+          <img src={motherBreedImage} alt={`Female ${motherBreed}`} />
+          {makePercentage(motherBreedChance)}
+        </div>
+        
         <div className={`breed-probability__parent ${fatherBreed === childBreed ? 'selected' : ''}`} onClick={() => handleChildSelection(fatherBreed)}>
             <img src={fatherBreedImage} alt={`Male ${fatherBreed}`} />
             {makePercentage(fatherBreedChance)}
-          </div>
-
-          <div className={`breed-probability__parent ${motherBreed === childBreed ? 'selected' : ''}`} onClick={() => handleChildSelection(motherBreed)}>
-            <img src={motherBreedImage} alt={`Female ${motherBreed}`} />
-            {makePercentage(motherBreedChance)}
-          </div>
+        </div>
         </>
       }
       {

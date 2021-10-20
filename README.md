@@ -1,10 +1,9 @@
 ### To-Do
 **BUGS**
 * align credits to bottom of page (footer)
-* obelisk image bug
-* make breed rarities a constant map obj
 * matchmaking add parents
 * hide all but colors on matchmaking page
+* set genes to a type
 
 **FEATURES**
 * useContext() for settings

@@ -10,9 +10,9 @@ export const INITAL_DRAGON: Dragon = {
     tertiary: -1,
   },
   genes: {
-    primary: -1,
-    secondary: -1,
-    tertiary: -1,
+    primary: '',
+    secondary: '',
+    tertiary: '',
   },
   sex: undefined,
   breed: undefined,
@@ -57,6 +57,24 @@ export const RARITY_CHART = {
   },
 };
 
+export const MODERN_BREEDS = {
+  'Bogsneak': 'uncommon',
+  'Coatl': 'rare',
+  'Fae': 'plentiful',
+  'Guardian': 'plentiful',
+  'Imperial': 'limited',
+  'Mirror': 'plentiful',
+  'Nocturne': 'limited',
+  'Obelisk': 'uncommon',
+  'Pearlcatcher': 'common',
+  'Ridgeback': 'common',
+  'Skydancer': 'uncommon',
+  'Snapper': 'common',
+  'Spiral': 'common',
+  'Tundra': 'plentiful',
+  'Wildclaw': 'rare',
+}
+
 export const MODERN_PRIMARY_GENES = {
   'Basic': 'plentiful',
   'Bar': 'uncommon', 
@@ -80,7 +98,7 @@ export const MODERN_PRIMARY_GENES = {
   'Pinstripe': 'limited', 
   'Poison': 'limited', 
   'Python': 'uncommon', 
-  'Ribbon': 'common', 
+  'Ribbon': 'uncommon', 
   'Ripple': 'uncommon', 
   'Savannah': 'common', 
   'Skink': 'limited', 
@@ -107,7 +125,7 @@ export const MODERN_SECONDARY_GENES = {
   'Current': 'uncommon',
   'Daub': 'common',
   'Edged': 'common',
-  'Eel': 'common',
+  'Eel': 'uncommon',
   'Eye Spots': 'common',
   'Facet': 'rare',
   'Flair': 'uncommon',
@@ -161,4 +179,4 @@ export const MODERN_TERTIARY_GENES = {
   'Thylacine': 'common',
   'Underbelly': 'common',
   'Veined': 'limited',
-}
+};

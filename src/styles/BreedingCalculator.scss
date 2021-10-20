@@ -28,6 +28,7 @@
 #breeding-calculator__results {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   background-color: $light-theme-1;
   box-sizing: border-box;
@@ -43,7 +44,7 @@
 
 .results__col {
   @include phone-landscape {
-
+    min-width: 35%;
   }
 }
 

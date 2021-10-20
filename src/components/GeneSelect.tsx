@@ -31,7 +31,7 @@ export default function GeneSelect({ type, id } : GeneSelectProps) {
       onChange={handleChange}
     >
       {/* the default value is a label */}
-      <option value="-1">(optional: {type} gene)</option>
+      <option value="">(optional: {type} gene)</option>
       {/* all of the genes */}
       {
         Object.keys(geneList as object).map((geneName, idx) => {

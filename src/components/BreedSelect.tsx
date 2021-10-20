@@ -28,7 +28,7 @@ export default function BreedSelect({ id } : BreedSelectProps) {
       onChange={handleChange}
     >
       {/* the default value is a label */}
-      <option value="-1">(optional: breed)</option>
+      <option value="">(optional: breed)</option>
 
       {/* all of the colors in the color wheel, in order */}
       {
