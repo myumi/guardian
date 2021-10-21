@@ -33,7 +33,7 @@ button {
   width: 220px;
 
   @include phone-landscape {
-    max-width: 180px;
+    max-width: 210px;
   }
 
   &:disabled {

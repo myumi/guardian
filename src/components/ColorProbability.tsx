@@ -26,7 +26,7 @@ export default function ColorProbability({ id, span }: ColorProbabilityProps) {
       <div className="colors">
         {
           span.length <= 0 
-          ? <span>Please select {id} colors for both parents to see the range.</span> 
+          ? <span className="colors__empty-message">Please select {id} colors for both parents to see the range.</span> 
           : span.map(({colorName, colorCode, value}) => 
             <Color 
               colorName={colorName} 

@@ -4,11 +4,12 @@
 .dragon {
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   padding: 10px 30px;
 
   @include phone-landscape {
-    max-width: 180px;
+    max-width: 210px;
     padding: 10px 0;
   }
 }
@@ -21,17 +22,22 @@
 
   @include phone-landscape {
     padding: 8px;
-    width: unset;
+    width: 210px;
   }
 }
 
 .dragon__section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   margin: $spacing-1 0;
 
   select {
     width: 220px;
+
     @include phone-landscape {
-      max-width: 180px;
+      width: 210px;
     }
   }
 }
