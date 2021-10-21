@@ -3,6 +3,9 @@
 * align credits to bottom of page (footer)
 * set genes to a type
 * center form on mobile
+* make breeding calculator and matchmaking styling consistent
+* fix results column
+* more importall statement and percentage function to a global file
 * calculate total child outcome on calculator page
 
 **FEATURES**

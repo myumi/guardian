@@ -1,33 +1,70 @@
 @import '_breakpoints.scss';
 @import '_spacing.scss';
+@import '_themes.scss';
 
-.gene-probability h2 {
-  font-size: $font-size-4;
+// empty message
+.gene-probability__empty-message {
+  display: inline-block;
+  min-height: 118px;
 }
 
-.gene-probability__gene-container {
+// different genes container
+.gene-probability__different-genes {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  .different-genes__gene {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    cursor: pointer;
+
+    .different-genes__gene-image {
+      border: 5px solid transparent;
+    }
+
+    &.selected {
+      .different-genes__gene-image {
+        padding: 3px;
+        border: 2px solid $light-theme-7;
+      }
+
+      .different-genes__percentage {
+        color: $light-theme-7;
+        font-weight: bold;
+      }
+    }
+  }
 }
 
-.gene-probability__gene {
+// same genes
+.gene-probability__same-genes {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
   cursor: pointer;
+  width: 100%;
 
-  img {
-    border: 3px solid transparent;
+  .same-genes__image {
+    border: 5px solid transparent;
+  }
+
+  .same-genes__percentage {
+    margin: $spacing-1 0 0;
   }
 
   &.selected {
-    font-weight: bold;
-
-    img {
-      border: 3px solid;
+    .same-genes__image {
+      padding: 3px;
+      border: 2px solid $light-theme-7;
+    }
+  
+    .same-genes__percentage {
+      color: $light-theme-7;
+      font-weight: bold;
     }
   }
 }

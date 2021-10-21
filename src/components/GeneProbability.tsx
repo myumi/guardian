@@ -75,37 +75,60 @@ export default function GeneProbability({ type }: GeneProbabilityProps) {
   };
 
   return (
-    <section className="gene-probability">
+    <section id={`${type}-gene-probability`}>
+      <h2>
+        {`${type[0].toUpperCase()}${type.substring(1)}`} Gene Outcomes
+      </h2>
+
+      {/* no genes selected */}
       {
-        !!((fatherGeneChance && motherGeneChance) && !(motherGene === fatherGene))
-        && <>
-          <h2>
-            {`${type[0].toUpperCase()}${type.substring(1)}`} Gene Outcomes
-          </h2>
-          <div className="gene-probability__gene-container">
-            <div className={`gene-probability__gene ${motherGene === childGene ? 'selected' : ''}`} onClick={() => handleChildSelection(motherGene)}>
-              <img alt={`${type} gene`} src={motherGeneImage} />
-              {makePercentage(motherGeneChance)}
-            </div>
-            <div className={`gene-probability__gene ${fatherGene === childGene ? 'selected' : ''}`}  onClick={() => handleChildSelection(fatherGene)}>
-              <img alt={`${type} gene`} src={fatherGeneImage} />
-              {makePercentage(fatherGeneChance)}
-            </div>
-          </div>
-        </>
+        !!(!fatherGene || !motherGene)
+        &&
+        <span className="gene-probability__empty-message">
+          Please select {type} genes for both parents to see the probabilities.
+        </span>
       }
 
+      {/* different genes */}
+      {
+        !!((fatherGeneChance && motherGeneChance) && !(motherGene === fatherGene))
+        && 
+        <div className="gene-probability__different-genes">
+          <div className={`different-genes__gene ${motherGene === childGene ? 'selected' : ''}`} onClick={() => handleChildSelection(motherGene)}>
+            <img 
+              alt={`${type} gene`}
+              className="different-genes__gene-image"
+              src={motherGeneImage}
+            />
+            <span className="different-genes__percentage">
+              {makePercentage(motherGeneChance)}
+            </span>
+          </div>
+          <div className={`different-genes__gene ${fatherGene === childGene ? 'selected' : ''}`}  onClick={() => handleChildSelection(fatherGene)}>
+            <img 
+              alt={`${type} gene`}
+              className="different-genes__gene-image"
+              src={fatherGeneImage}
+            />
+            <span className="different-genes__percentage">
+              {makePercentage(fatherGeneChance)}
+            </span>
+          </div>
+        </div>
+      }
+
+      {/* same genes */}
       {
         !!((fatherGeneChance && motherGeneChance) && (motherGene === fatherGene))
-        && <section className={`gene-probability__${type}-genes`}>
-          <h2>
-            {`${type[0].toUpperCase()}${type.substring(1)}`} Gene Outcomes
-          </h2>
-          <div className={`gene-probability__gene ${motherGene === childGene ? 'selected' : ''}`}  onClick={() => handleChildSelection(motherGene)}>
-            <img alt={`${type} gene`} src={motherGeneImage} />
-            100%
+        && 
+          <div className={`gene-probability__same-genes ${motherGene === childGene ? 'selected' : ''}`}  onClick={() => handleChildSelection(motherGene)}>
+            <img 
+              alt={`${type} gene`}
+              className="same-genes__image"
+              src={motherGeneImage} 
+            />
+            <span className="same-genes__percentage">100%</span>
           </div>
-        </section>
       }
     </section>
   );

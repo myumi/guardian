@@ -13,6 +13,16 @@
   }
 }
 
+// empty message 
+.breed-probability__empty-message {
+  display: inline-block;
+  min-height: 133px;
+
+  @include phone-landscape {
+    min-height: 213px;
+  }
+}
+
 // different parents container
 .breed-probability__different-parents {
   display: flex;
