@@ -2,23 +2,9 @@
 @import '_spacing.scss';
 @import '_themes.scss';
 
-.breed-probability {
-  display: flex;
-  flex-direction: row;
-
-  justify-content: space-between;
-}
-
-.breed-probability__parent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-
+// base
+#breed-probability {
   img {
-    border: 3px solid transparent;
     width: 100px;
 
     @include phone-landscape {
@@ -27,10 +13,65 @@
   }
 }
 
-.breed-probability__parent.selected {
-  font-weight: bold;
+// different parents container
+.breed-probability__different-parents {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-  img {
-    border: 3px solid;
+  // individual parent image + percentage
+  .different-parents__parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    cursor: pointer;
+
+    .different-parents__parent-image {
+      border: 5px solid transparent;
+    }
+
+    &.selected {
+      .different-parents__parent-image {
+        padding: 3px;
+        border: 2px solid $light-theme-7;
+      }
+      .different-parents__percentage {
+        color: $light-theme-7;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// same parents container
+.breed-probability__same-parents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  cursor: pointer;
+  width: 100%;
+
+  .same-parents__images {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    border: 5px solid transparent;
+    width: 100%;
+
+    &.selected {
+      padding: 3px;
+      border: 2px solid $light-theme-7;
+    }
+  }
+
+  .same-parents__percentage {
+    margin: $spacing-1 0 0;
+    &.selected {
+      color: $light-theme-7;
+      font-weight: bold;
+    }
   }
 }

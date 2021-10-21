@@ -18,13 +18,6 @@
   }
 }
 
-// #breeding-calculator__color-probabilities {
-//   @include phone-landscape {
-//     margin: 10px 0;
-//     width: 100%;
-//   }
-// }
-
 #breeding-calculator__results {
   display: flex;
   flex-direction: column;
@@ -43,11 +36,21 @@
 }
 
 .results__col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  margin: $spacing-2;
+
   @include phone-landscape {
+    min-height: 100%;
     min-width: 35%;
   }
 }
 
-.results__col .color-probability {
-  margin: $spacing-5 0;
+.results__col.color-probability {
+  @include phone-landscape {
+    min-width: 60%;
+    max-width: 60%;
+  }
 }

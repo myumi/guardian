@@ -4,8 +4,8 @@ import MatchMakingList from './MatchMakingList';
 import MatchMakingParent from './MatchMakingParent';
 import AddParentButton from './AddParentButton';
 import CalculateButton from './CalculateButton';
-import '../../styles/MatchMaking.scss'
 import Dragon from '../Dragon';
+import '../../styles/MatchMaking.scss'
 
 export default function MatchMaking() {
   const mother = useSelector((state: any) => state.dragons.mother);
@@ -20,15 +20,15 @@ export default function MatchMaking() {
     <section className="matchmaking">
       <div className="matchmaking__dragons">
         <div>
-          <Dragon id="mother" dragon={mother} />
+          <Dragon id="mother" dragon={mother} matchmaking={true} />
           <AddParentButton id='mother' />
         </div>
         <div>        
-          <Dragon id="father" dragon={father} />
+          <Dragon id="father" dragon={father} matchmaking={true} />
           <AddParentButton id='father' />
         </div>
         <div>
-          <Dragon id="child" dragon={child} />
+          <Dragon id="child" dragon={child} matchmaking={true} />
           <CalculateButton />
         </div>
       </div>
@@ -37,8 +37,8 @@ export default function MatchMaking() {
         <h1>Saved Parents for Matchmaking</h1>
         <ul className="matchmaking__parents" >
           {(!motherParents.length && !fatherParents.length) ? <span className="matchmaking__empty-statement">No parents have been saved here yet.</span> : ''}
-          {motherParents.map((dragon: DragonType, index: number) => <li key={`${dragon}-${index}`}><MatchMakingParent dragon={dragon} sex='mother' /></li>)}
-          {fatherParents.map((dragon: DragonType, index: number) => <li key={`${dragon}-${index}`}><MatchMakingParent dragon={dragon} sex='father' /></li>)}
+          {motherParents.map((dragon: DragonType, index: number) => <li key={`${dragon.name}-${index}`}><MatchMakingParent dragon={dragon} sex='mother' /></li>)}
+          {fatherParents.map((dragon: DragonType, index: number) => <li key={`${dragon.name}-${index}`}><MatchMakingParent dragon={dragon} sex='father' /></li>)}
         </ul>
       </div>
 

@@ -5,9 +5,9 @@ export default function AddParentButton() {
   const dispatch = useDispatch();
   const child = useSelector((state: any) => state.dragons.child);
   const disabled = useSelector((state: any) => {
-    const primary = state.dragons.child.primary > -1;
-    const secondary = state.dragons.child.secondary > -1;
-    const tertiary = state.dragons.child.tertiary > -1;
+    const primary = state.dragons.child.colors.primary > -1;
+    const secondary = state.dragons.child.colors.secondary > -1;
+    const tertiary = state.dragons.child.colors.tertiary > -1;
 
     const hasParents = state.matchmaking.mothers.length && state.matchmaking.fathers.length;
     const hasColors = primary && secondary && tertiary;

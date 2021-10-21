@@ -7,9 +7,10 @@ import '../styles/Dragon.scss';
 interface DragonProps {
   id: string;
   dragon: DragonType;
+  matchmaking?: boolean;
 };
 
-export default function Dragon({ id, dragon }: DragonProps) {
+export default function Dragon({ id, dragon, matchmaking = false }: DragonProps) {
   const dispatch = useDispatch();
   const value = useSelector((state: any) => state.dragons[id].name);
 
@@ -32,9 +33,11 @@ export default function Dragon({ id, dragon }: DragonProps) {
         onChange={handleChange}
       />
 
-      <div className="dragon__section">
-        <BreedSelect id={id} />
-      </div>
+      { !matchmaking &&
+        <div className="dragon__section">
+          <BreedSelect id={id} />
+        </div>
+      }
 
       <div className="dragon__section">
         <ColorSelect id={id} type="primary" />
@@ -42,11 +45,14 @@ export default function Dragon({ id, dragon }: DragonProps) {
         <ColorSelect id={id} type="tertiary" />
       </div>
 
-      <div className="dragon__section">
-        <GeneSelect id={id} type="primary" />
-        <GeneSelect id={id} type="secondary" />
-        <GeneSelect id={id} type="tertiary" />
-      </div>
+      {
+        !matchmaking &&
+        <div className="dragon__section">
+          <GeneSelect id={id} type="primary" />
+          <GeneSelect id={id} type="secondary" />
+          <GeneSelect id={id} type="tertiary" />
+        </div>
+      }
     </section>
   );
 };

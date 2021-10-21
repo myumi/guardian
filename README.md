@@ -1,9 +1,9 @@
 ### To-Do
 **BUGS**
 * align credits to bottom of page (footer)
-* matchmaking add parents
-* hide all but colors on matchmaking page
 * set genes to a type
+* center form on mobile
+* calculate total child outcome on calculator page
 
 **FEATURES**
 * useContext() for settings

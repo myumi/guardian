@@ -1,5 +1,6 @@
 
 @import '_breakpoints.scss';
+@import '_spacing.scss';
 @import '_themes.scss';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
@@ -39,6 +40,11 @@ button {
     background-color: $light-theme-accent-2;
     cursor: not-allowed;
   }
+}
+
+h2 {
+  font-size: $font-size-4;
+  margin: 0 0 $spacing-1;
 }
 
 select {

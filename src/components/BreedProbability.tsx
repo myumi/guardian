@@ -62,32 +62,58 @@ export default function BreedProbability() {
   // todo: if mother and father breed are the same
   // display both images but a single "100%"
   return (
-    <section className="breed-probability">
+    <section id="breed-probability">
+      <h2>Breed Outcomes</h2>
+
+      {/* no breeds selected */}
+      {
+        !!(!fatherBreedChance || !motherBreedChance)
+        && 
+        <span className="breed-probability__empty-message">
+          Please select breeds for both parents to see the probabilities.
+        </span>
+      }
+
+      {/* different breeds selected */}
       {
         !!((fatherBreedChance && motherBreedChance) && !(motherBreed === fatherBreed))
         &&       
-        <>
-        <div className={`breed-probability__parent ${motherBreed === childBreed ? 'selected' : ''}`} onClick={() => handleChildSelection(motherBreed)}>
-          <img src={motherBreedImage} alt={`Female ${motherBreed}`} />
-          {makePercentage(motherBreedChance)}
+        <div className="breed-probability__different-parents">
+          <div className={`different-parents__parent ${motherBreed === childBreed ? 'selected' : ''}`} onClick={() => handleChildSelection(motherBreed)}>
+            <img 
+              src={motherBreedImage} 
+              alt={`Female ${motherBreed}`} 
+              className="different-parents__parent-image" 
+            />
+            <span className="different-parents__percentage">
+              {makePercentage(motherBreedChance)}
+            </span>
+          </div>
+          
+          <div className={`different-parents__parent ${fatherBreed === childBreed ? 'selected' : ''}`} onClick={() => handleChildSelection(fatherBreed)}>
+              <img 
+                src={fatherBreedImage} 
+                alt={`Male ${fatherBreed}`} 
+                className="different-parents__parent-image" 
+              />
+              <span className="different-parents__percentage">
+                {makePercentage(fatherBreedChance)}
+              </span>
+          </div>
         </div>
-        
-        <div className={`breed-probability__parent ${fatherBreed === childBreed ? 'selected' : ''}`} onClick={() => handleChildSelection(fatherBreed)}>
-            <img src={fatherBreedImage} alt={`Male ${fatherBreed}`} />
-            {makePercentage(fatherBreedChance)}
-        </div>
-        </>
       }
+
+      {/* same breed selected */}
       {
         !!((fatherBreedChance && motherBreedChance) && (motherBreed === fatherBreed))
         &&       
-        <>
-          <div className={`breed-probability__images ${motherBreed === childBreed ? 'selected' : ''}`} onClick={() => handleChildSelection(motherBreed)}>
+        <div className="breed-probability__same-parents">
+          <div className={`same-parents__images ${motherBreed === childBreed ? 'selected' : ''}`} onClick={() => handleChildSelection(motherBreed)}>
             <img src={fatherBreedImage} alt={`Male ${fatherBreed}`} />
             <img src={motherBreedImage} alt={`Female ${motherBreed}`} />
           </div>
-          <span>100%</span>
-        </>
+          <span className={`same-parents__percentage ${motherBreed === childBreed ? 'selected' : ''}`}>100%</span>
+        </div>
       }
     </section>
   );

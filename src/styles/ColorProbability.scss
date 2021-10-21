@@ -1,14 +1,4 @@
-@import '_breakpoints.scss';
 @import '_spacing.scss';
-
-.color-probability {
-
-}
-
-.color-probability h2 {
-  font-size: $font-size-4;
-  margin: 0 0 $spacing-2;
-}
 
 .color-probability .colors {
   display: flex;

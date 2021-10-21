@@ -1,10 +1,10 @@
-import { createContext, useState } from 'react';
+// import { createContext, useState } from 'react';
+import { useState } from 'react';
 import Header from './components/Header';
 import MatchMaking from './components/matchmaking/MatchMaking';
 import BreedingCalculator from './components/breeding/BreedingCalculator';
 import './styles/Guardian.scss';
 import FAQ from './components/faq/FAQ';
-import GeneSelect from './components/GeneSelect';
 export default function Guardian() {
   const [page, setPage] = useState(0);
   const [settings, openSettings] = useState(false);

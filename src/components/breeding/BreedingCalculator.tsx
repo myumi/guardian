@@ -30,6 +30,8 @@ export default function Guardian() {
 
         <div id="breeding-calculator__results">
           <div className="results__col color-probability">
+            <BreedProbability />
+
             <ColorProbability
               id="primary"
               span={primarySpan}
@@ -42,8 +44,6 @@ export default function Guardian() {
               id="tertiary"
               span={tertiarySpan}
             />
-
-            <BreedProbability />
           </div>
           <div className="results__col">
             <GeneProbability type={'primary'} />

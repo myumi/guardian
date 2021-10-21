@@ -170,7 +170,6 @@ export default function dragonReducer(state: RootState = initalState, action: Ac
       };
     case 'dragon/childGenes':
       if (isDragon(action.payload)) {
-        console.log('poassed dragon btest')
         return {
           ...state,
           child: {

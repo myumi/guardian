@@ -98,7 +98,13 @@ export default function GeneProbability({ type }: GeneProbabilityProps) {
       {
         !!((fatherGeneChance && motherGeneChance) && (motherGene === fatherGene))
         && <section className={`gene-probability__${type}-genes`}>
-          blahblahblah 
+          <h2>
+            {`${type[0].toUpperCase()}${type.substring(1)}`} Gene Outcomes
+          </h2>
+          <div className={`gene-probability__gene ${motherGene === childGene ? 'selected' : ''}`}  onClick={() => handleChildSelection(motherGene)}>
+            <img alt={`${type} gene`} src={motherGeneImage} />
+            100%
+          </div>
         </section>
       }
     </section>
