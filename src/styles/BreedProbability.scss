@@ -1,0 +1,87 @@
+@import '_breakpoints.scss';
+@import '_spacing.scss';
+@import '_themes.scss';
+
+// base
+#breed-probability {
+  img {
+    width: 100px;
+
+    @include phone-landscape {
+      width: 180px;
+    }
+  }
+}
+
+// empty message 
+.breed-probability__empty-message {
+  display: inline-block;
+  min-height: 133px;
+
+  @include phone-landscape {
+    min-height: 213px;
+  }
+}
+
+// different parents container
+.breed-probability__different-parents {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  // individual parent image + percentage
+  .different-parents__parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    cursor: pointer;
+
+    .different-parents__parent-image {
+      border: 5px solid transparent;
+    }
+
+    &.selected {
+      .different-parents__parent-image {
+        padding: 3px;
+        border: 2px solid $light-theme-7;
+      }
+      .different-parents__percentage {
+        color: $light-theme-7;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// same parents container
+.breed-probability__same-parents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  cursor: pointer;
+  width: 100%;
+
+  .same-parents__images {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    border: 5px solid transparent;
+    width: 100%;
+
+    &.selected {
+      padding: 3px;
+      border: 2px solid $light-theme-7;
+    }
+  }
+
+  .same-parents__percentage {
+    margin: $spacing-1 0 0;
+    &.selected {
+      color: $light-theme-7;
+      font-weight: bold;
+    }
+  }
+}

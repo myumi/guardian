@@ -1,0 +1,69 @@
+@import '_breakpoints.scss';
+@import '_spacing.scss';
+@import '_themes.scss';
+
+#breeding-calculator {
+  width: 100%;
+}
+
+#breeding-calculator__selectors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include phone-landscape {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+#breeding-calculator__results {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: $light-theme-1;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: $spacing-4;
+  margin: $spacing-5 0 0;
+  width: 100%;
+
+  @include phone-landscape {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.results__col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  margin: $spacing-2;
+
+  @include phone-landscape {
+    min-height: 100%;
+    min-width: 35%;
+  }
+}
+
+.results__col.color-probability {
+  @include phone-landscape {
+    min-width: 60%;
+    max-width: 60%;
+  }
+}
+
+.results__col.gene-probability {
+  @include phone-landscape {
+    min-width: 35%;
+    max-width: 35%;
+  }
+}
+
+.results__total {
+  flex-basis: 100%;
+  text-align: center;
+}

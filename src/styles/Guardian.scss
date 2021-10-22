@@ -1,4 +1,6 @@
+@import '_breakpoints.scss';
 @import '_spacing.scss';
+@import '_themes.scss';
 
 main {
   display: flex;
@@ -6,35 +8,20 @@ main {
   align-items: center;
 
   max-width: 750px;
-  margin: 0 2rem;
+  margin: 80px 2rem $spacing-5;
 
   @include phone-landscape {
-    margin: 0 auto;
     padding: 0 30px;
+    margin: 80px auto;
     max-width: 750px;
   }
 }
 
-#dragon__selectors {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+#guardian__credits {
+  margin: $spacing-5 0 0;
+  color: $light-theme-text-1;
 
-  @include phone-landscape {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+  a {
+    color: $light-theme-text-1;
   }
-}
-
-#color-probabilities {
-  @include phone-landscape {
-    margin: 10px 0;
-    width: 100%;
-  }
-}
-
-main h3 {
-  align-self: flex-start;
-  margin: 5px 0 20px;
 }

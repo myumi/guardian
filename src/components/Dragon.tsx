@@ -1,15 +1,16 @@
+import { useDispatch, useSelector } from 'react-redux';
+import BreedSelect from './BreedSelect';
+import GeneSelect from './GeneSelect';
 import ColorSelect from './ColorSelect';
 import { Dragon as DragonType } from 'guardian';
 import '../styles/Dragon.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import AddParentButton from './matchmaking/AddParentButton';
-import CalculateButton from './matchmaking/CalculateButton';
 interface DragonProps {
   id: string;
   dragon: DragonType;
+  matchmaking?: boolean;
 };
 
-export default function Dragon({ id, dragon }: DragonProps) {
+export default function Dragon({ id, dragon, matchmaking = false }: DragonProps) {
   const dispatch = useDispatch();
   const value = useSelector((state: any) => state.dragons[id].name);
 
@@ -31,13 +32,26 @@ export default function Dragon({ id, dragon }: DragonProps) {
         placeholder={`${id}'s name/ID`}
         onChange={handleChange}
       />
-      <ColorSelect id={id} type="primary" />
-      <ColorSelect id={id} type="secondary" />
-      <ColorSelect id={id} type="tertiary" />
+
+      { !matchmaking &&
+        <div className="dragon__section">
+          <BreedSelect id={id} />
+        </div>
+      }
+
+      <div className="dragon__section">
+        <ColorSelect id={id} type="primary" />
+        <ColorSelect id={id} type="secondary" />
+        <ColorSelect id={id} type="tertiary" />
+      </div>
+
       {
-        (id === 'mother' || id === 'father') 
-        ? <AddParentButton id={id} />
-        : <CalculateButton />
+        !matchmaking &&
+        <div className="dragon__section">
+          <GeneSelect id={id} type="primary" />
+          <GeneSelect id={id} type="secondary" />
+          <GeneSelect id={id} type="tertiary" />
+        </div>
       }
     </section>
   );

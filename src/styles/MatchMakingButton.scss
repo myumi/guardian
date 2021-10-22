@@ -1,15 +1,13 @@
-@import '_spacing.scss';
+@import '_breakpoints.scss';
 
-.matchmaking__button {
-  box-sizing: border-box;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 12px 18px;
-  margin: 3px 0;
-  width: 220px;
+// .matchmaking__button {
+//   padding: 12px 18px;
+//   margin: 3px 0;
+//   width: 100%;
+//   max-width: 180px;
 
-  @include phone-landscape {
-    padding: 8px;
-    width: unset;
-  }
-}
+//   @include phone-landscape {
+//     padding: 8px;
+//     width: unset;
+//   }
+// }

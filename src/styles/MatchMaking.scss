@@ -1,4 +1,4 @@
-@import '_spacing.scss';
+@import '_breakpoints.scss';
 
 .matchmaking {
   display: flex;
@@ -10,6 +10,23 @@
 .matchmaking h1 {
   display: block;
   text-align: left;
+}
+
+.matchmaking__dragons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include phone-landscape {
+    flex-direction: row;
+  }
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .matchmaking__parents {

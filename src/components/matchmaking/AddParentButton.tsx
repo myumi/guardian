@@ -10,9 +10,9 @@ export default function AddParentButton({ id }: AddParentButtonProps) {
   const dispatch = useDispatch();
   const casedId = `${id[0].toUpperCase()}${id.slice(1)}`;
   const disabled = useSelector((state: any) =>  {
-    const primary = state.dragons[id].primary > -1;
-    const secondary = state.dragons[id].secondary > -1;
-    const tertiary = state.dragons[id].tertiary > -1;
+    const primary: boolean = state.dragons[id].colors.primary.value > -1;
+    const secondary: boolean = state.dragons[id].colors.secondary.value > -1;
+    const tertiary: boolean = state.dragons[id].colors.tertiary.value > -1;
     return !(primary && secondary && tertiary);
   });
 
@@ -25,10 +25,12 @@ export default function AddParentButton({ id }: AddParentButtonProps) {
       {
         type: `matchmaking/add${casedId}`,
         payload: {
-          name: state.dragons[id].name|| 'Unnamed',
-          primary: state.dragons[id].primary,
-          secondary: state.dragons[id].secondary,
-          tertiary: state.dragons[id].tertiary,
+          name: state.dragons[id].name || 'Unnamed',
+          colors: {
+            primary: state.dragons[id].colors.primary,
+            secondary: state.dragons[id].colors.secondary,
+            tertiary: state.dragons[id].colors.tertiary,
+          }
         }
       }
     );

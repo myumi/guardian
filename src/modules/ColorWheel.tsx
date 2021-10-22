@@ -1,6 +1,6 @@
-import { ColorInterface } from './types/types';
+import { ColorWheelInterface, ColorInterface } from './types/types';
 
-export const colorWheel: Array<ColorInterface> = [
+export const colorWheel: Array<ColorWheelInterface> = [
   {
     colorName: 'Maize',
     colorCode: '#FFFCE9',
@@ -883,14 +883,28 @@ export const colorWheel: Array<ColorInterface> = [
   },
 ];
 
+// gets color interface from wheel when given an index
+export const getColor = (index: number): ColorInterface => {
+  if (index < 0 || index > colorWheel.length - 1) {
+    return {
+      colorName: '',
+      colorCode: '',
+      textColor: '',
+      value: -1,
+    }
+  }
+  
+ return {...colorWheel[index], value: index};
+}
+
 // finds the shortest distance between two colors and returns span of colors between them
-export const getSpanBetweenColors = (color1: number, color2: number): Array<ColorInterface> => {
-  let currentColor = Math.min(color1, color2);
-  let goal = Math.max(color1, color2);;
-  let span = [{...colorWheel[currentColor], value: currentColor}]; // default span is single color
+export const getSpanBetweenColors = ({ value: color1 }: ColorInterface, { value: color2 }: ColorInterface): Array<ColorInterface> => {
+  let currentColor: number = Math.min(color1, color2);
+  let goal: number = Math.max(color1, color2);;
+  let span: Array<ColorInterface> = [{...colorWheel[currentColor], value: currentColor}]; // default span is single color
 
   // SHORT CIRCUIT
-  if (color1 > colorWheel.length || color2  > colorWheel.length || color1 < 0 || color2 < 0) {
+  if (color1 > colorWheel.length || color2  > colorWheel.length || color1 < 0 || color2 < 0 || !color1 || !color2) {
     return [];
   }
 
