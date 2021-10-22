@@ -1,12 +1,13 @@
 ### To-Do
 **BUGS**
 * align credits to bottom of page (footer)
-* set genes to a type
-* center form on mobile
 * make breeding calculator and matchmaking styling consistent
 * fix results column
-* more importall statement and percentage function to a global file
-* calculate total child outcome on calculator page
+* move importall statement and percentage function to a global file
+* change flexbox styling on results to grid
+* add gender for child dragon
+* fix calculate parents
+* make colors unclickable on matchmaking page
 
 **FEATURES**
 * useContext() for settings

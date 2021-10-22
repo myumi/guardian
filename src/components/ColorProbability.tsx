@@ -27,13 +27,11 @@ export default function ColorProbability({ id, span }: ColorProbabilityProps) {
         {
           span.length <= 0 
           ? <span className="colors__empty-message">Please select {id} colors for both parents to see the range.</span> 
-          : span.map(({colorName, colorCode, value}) => 
+          : span.map((color) => 
             <Color 
-              colorName={colorName} 
-              colorCode={colorCode}
-              value={value}
+              color={color}
               category={id}
-              key={`${id}-${colorName}`}
+              key={`${id}-${color.colorName}`}
             />)
         }
       </div>

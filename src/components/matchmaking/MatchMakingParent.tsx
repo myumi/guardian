@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { Dragon } from 'guardian';
-import { colorWheel } from '../../modules/ColorWheel';
 import Color from '../Color';
 import '../../styles/MatchMakingParent.scss';
 
@@ -13,9 +12,6 @@ export default function MatchMakingParent({ dragon, sex }: MatchMakingParentInte
   const dispatch = useDispatch();
 
   const { colors: { primary, secondary, tertiary }, name } = dragon;
-  const { colorName: pName, colorCode: pCode, value: pValue } = colorWheel[primary];
-  const { colorName: sName, colorCode: sCode, value: sValue } = colorWheel[secondary];
-  const { colorName: tName, colorCode: tCode, value: tValue } = colorWheel[tertiary];
   
   const setParent = () => {
       dispatch({ type: `dragon/${sex}Colors`, payload: { primary, secondary, tertiary } });
@@ -31,9 +27,9 @@ export default function MatchMakingParent({ dragon, sex }: MatchMakingParentInte
             : " ♂"
         }
       </span>
-      <Color colorName={pName} colorCode={pCode} value={pValue} category="primary" />
-      <Color colorName={sName} colorCode={sCode} value={sValue} category="secondary" />
-      <Color colorName={tName} colorCode={tCode} value={tValue} category="tertiary" />
+      <Color color={primary} category="primary" />
+      <Color color={secondary} category="secondary" />
+      <Color color={tertiary} category="tertiary" />
     </span>
   );
 };

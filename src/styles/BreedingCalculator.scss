@@ -32,6 +32,7 @@
 
   @include phone-landscape {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
@@ -53,4 +54,16 @@
     min-width: 60%;
     max-width: 60%;
   }
+}
+
+.results__col.gene-probability {
+  @include phone-landscape {
+    min-width: 35%;
+    max-width: 35%;
+  }
+}
+
+.results__total {
+  flex-basis: 100%;
+  text-align: center;
 }

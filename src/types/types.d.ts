@@ -12,9 +12,9 @@ declare module "guardian" {
   export interface Dragon {
     name: string;
     colors: {
-      primary: number;
-      secondary: number;
-      tertiary: number;
+      primary: ColorInterface;
+      secondary: ColorInterface;
+      tertiary: ColorInterface;
     };
     genes?: {
       primary?: ModernPrimaryGene;

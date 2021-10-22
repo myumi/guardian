@@ -4,8 +4,9 @@ import ColorProbability from '../ColorProbability';
 import '../../styles/BreedingCalculator.scss';
 import BreedProbability from '../BreedProbability';
 import GeneProbability from '../GeneProbability';
+import TotalProbability from './TotalProbability';
 
-export default function Guardian() {
+export default function BreedingCalculator() {
   const mother = useSelector((state: any) => state.dragons.mother);
   const father = useSelector((state: any) => state.dragons.father);
   const child = useSelector((state: any) => state.dragons.child);
@@ -13,12 +14,6 @@ export default function Guardian() {
   const primarySpan = useSelector((state: any) => state.dragons.primarySpan);
   const secondarySpan = useSelector((state: any) => state.dragons.secondarySpan);
   const tertiarySpan = useSelector((state: any) => state.dragons.tertiarySpan);
-
-  const getTotalPercentage = (primarySpanLength: number, secondarySpanLength: number, TertiarySpanLength: number): string => {
-    const total = (1 / primarySpanLength) * (1 / secondarySpanLength) * (1 / TertiarySpanLength);
-
-    return `${(total * 100).toFixed(5)}%`;
-  }
 
   return (
     <section id="breeding-calculator">
@@ -45,12 +40,13 @@ export default function Guardian() {
               span={tertiarySpan}
             />
           </div>
-          <div className="results__col">
+          <div className="results__col gene-probability">
             <GeneProbability type={'primary'} />
             <GeneProbability type={'secondary'} />
             <GeneProbability type={'tertiary'} />
           </div>
-          <div className="results__total"></div>
+
+          <TotalProbability />
         </div>
     </section>
   )

@@ -7,7 +7,15 @@ interface GeneProbabilityProps {
 
 export default function GeneProbability({ type }: GeneProbabilityProps) {
   const dispatch = useDispatch();
-  const geneImages = importAll(require.context('../assets/dragons/genes/', true, /\.(png|jpe?g|svg)$/));
+  
+  let geneImages = [];
+  if (type === 'primary') {
+    geneImages = importAll(require.context('../assets/dragons/genes/primary', false, /\.(png|jpe?g|svg)$/));
+  } else if (type === 'secondary') {
+    geneImages = importAll(require.context('../assets/dragons/genes/secondary', true, /\.(png|jpe?g|svg)$/));
+  } else if (type === 'tertiary') {
+    geneImages = importAll(require.context('../assets/dragons/genes/tertiary', true, /\.(png|jpe?g|svg)$/));
+  }
 
   const motherGene = useSelector((state: any) => state.dragons.mother.genes[type]);
   const fatherGene = useSelector((state: any) => state.dragons.father.genes[type]);

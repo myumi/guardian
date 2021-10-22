@@ -1,13 +1,14 @@
 /// <reference path="types.d.ts" />
 
 import { Dragon } from 'guardian';
+import { getColor } from '../modules/ColorWheel';
 
 export const INITAL_DRAGON: Dragon = {
   name: '',
   colors: {
-    primary: -1,
-    secondary: -1,
-    tertiary: -1,
+    primary: getColor(-1),
+    secondary: getColor(-1),
+    tertiary: getColor(-1),
   },
   genes: {
     primary: '',
@@ -141,7 +142,7 @@ export const MODERN_SECONDARY_GENES = {
   'Rosette': 'uncommon',
   'Safari': 'common',
   'Saturn': 'uncommon',
-  'Serpah': 'uncommon',
+  'Seraph': 'uncommon',
   'Shimmer': 'rare',
   'Sludge': 'limited',
   'Spinner': 'limited',

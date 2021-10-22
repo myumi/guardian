@@ -10,9 +10,9 @@ export default function AddParentButton({ id }: AddParentButtonProps) {
   const dispatch = useDispatch();
   const casedId = `${id[0].toUpperCase()}${id.slice(1)}`;
   const disabled = useSelector((state: any) =>  {
-    const primary = state.dragons[id].colors.primary > -1;
-    const secondary = state.dragons[id].colors.secondary > -1;
-    const tertiary = state.dragons[id].colors.tertiary > -1;
+    const primary: boolean = state.dragons[id].colors.primary.value > -1;
+    const secondary: boolean = state.dragons[id].colors.secondary.value > -1;
+    const tertiary: boolean = state.dragons[id].colors.tertiary.value > -1;
     return !(primary && secondary && tertiary);
   });
 

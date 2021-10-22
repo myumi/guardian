@@ -13,7 +13,6 @@ export interface RootState {
   primarySpan: Array<ColorInterface>;
   secondarySpan: Array<ColorInterface>;
   tertiarySpan: Array<ColorInterface>;
-  outcomeChance: number;
 }
 
 const initalState: RootState = {
@@ -23,7 +22,6 @@ const initalState: RootState = {
   primarySpan: [] as Array<ColorInterface>,
   secondarySpan: [] as Array<ColorInterface>,
   tertiarySpan: [] as Array<ColorInterface>,
-  outcomeChance: 0,
 }
 
 // 'dragon/motherColors', [newColors] -> color & span update
@@ -258,8 +256,4 @@ function isDragon(item: any): item is Dragon {
     });
   
   return (hasDragonProperty && !hasNonDragonProperty);
-}
-
-function outcomeChance(): number {
-  return 0;
 }

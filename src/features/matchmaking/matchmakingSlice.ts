@@ -94,9 +94,9 @@ function calculateAllParentProbability(mothers: Array<Dragon>, fathers: Array<Dr
       const x = getSpanBetweenColors(mother.colors.primary, father.colors.primary);
       const y = getSpanBetweenColors(mother.colors.secondary, father.colors.secondary);
       const z = getSpanBetweenColors(mother.colors.tertiary, father.colors.tertiary);
-      const chanceOfX = calculateColorProbability(x, child.colors.primary);
-      const chanceOfY = calculateColorProbability(y, child.colors.secondary);
-      const chanceOfZ = calculateColorProbability(z, child.colors.tertiary);
+      const chanceOfX = calculateColorProbability(x, child.colors.primary.value);
+      const chanceOfY = calculateColorProbability(y, child.colors.secondary.value);
+      const chanceOfZ = calculateColorProbability(z, child.colors.tertiary.value);
 
       // only push to array if probability is not zero
       if (chanceOfX) {
