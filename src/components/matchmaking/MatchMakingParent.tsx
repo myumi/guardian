@@ -14,7 +14,7 @@ export default function MatchMakingParent({ dragon, sex }: MatchMakingParentInte
   const { colors: { primary, secondary, tertiary }, name } = dragon;
   
   const setParent = () => {
-      dispatch({ type: `dragon/${sex}Colors`, payload: { primary, secondary, tertiary } });
+      dispatch({ type: `dragon/${sex}Colors`, payload: {colors: { primary, secondary, tertiary }} });
       dispatch({ type: `dragon/${sex}Name`, payload: name });
   };
   return (

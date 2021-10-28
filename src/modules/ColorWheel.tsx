@@ -222,6 +222,11 @@ export const colorWheel: Array<ColorWheelInterface> = [
     textColor: 'white',
   },
   {
+    colorName: 'Indigo',
+    colorCode: '#2D237A',
+    textColor: 'white',
+  },
+  {
     colorName: 'Sapphire',
     colorCode: '#0D0A5B',
     textColor: 'white',
@@ -904,7 +909,7 @@ export const getSpanBetweenColors = ({ value: color1 }: ColorInterface, { value:
   let span: Array<ColorInterface> = [{...colorWheel[currentColor], value: currentColor}]; // default span is single color
 
   // SHORT CIRCUIT
-  if (color1 > colorWheel.length || color2  > colorWheel.length || color1 < 0 || color2 < 0 || !color1 || !color2) {
+  if (color1 > colorWheel.length || color2  > colorWheel.length || color1 < 0 || color2 < 0) {
     return [];
   }
 
