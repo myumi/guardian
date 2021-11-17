@@ -1,6 +1,7 @@
 import { Dragon, Match } from 'guardian';
 import { ColorInterface } from '../../modules/types/types';
 import { getSpanBetweenColors } from '../../modules/ColorWheel';
+import _ from 'lodash';
 interface Action {
   type: string,
   payload: Dragon,
@@ -15,6 +16,7 @@ export interface RootState {
   bestXYMatches: Array<Dragon>;
   bestYZMatches: Array<Dragon>;
   bestXZMatches: Array<Dragon>;
+  index: number;
 };
 
 const initalState: RootState = {
@@ -27,6 +29,7 @@ const initalState: RootState = {
   bestXYMatches: [] as Array<Dragon>,
   bestYZMatches: [] as Array<Dragon>,
   bestXZMatches: [] as Array<Dragon>,
+  index: 0,
 };
 
 export default function matchmakingReducer(state: RootState = initalState, action: Action) {
@@ -53,9 +56,12 @@ export default function matchmakingReducer(state: RootState = initalState, actio
         fathers: [...newFathers],
       };
     case 'matchmaking/removeMother':
-      let motherIndex = state.mothers.indexOf(action.payload);
-      if (motherIndex) {
-        newMothers = state.mothers.splice(motherIndex, 1);
+      const motherIndex = state.mothers.findIndex((dragon: Dragon) => {
+        return _.isEqual(dragon, action.payload);
+      });
+      if (motherIndex > -1) {
+        newMothers = state.fathers;
+        newMothers.splice(motherIndex, 1);
 
         return {
           ...state,
@@ -64,10 +70,12 @@ export default function matchmakingReducer(state: RootState = initalState, actio
       }
       return state;
     case 'matchmaking/removeFather':
-      const fatherIndex = state.fathers.indexOf(action.payload);
-      if (fatherIndex) {
-        newFathers = state.fathers.splice(fatherIndex, 1);
-
+      const fatherIndex = state.fathers.findIndex((dragon: Dragon) => {
+        return _.isEqual(dragon, action.payload);
+      });
+      if (fatherIndex > -1) {
+        newFathers = state.fathers;
+        newFathers.splice(fatherIndex, 1);
         return {
           ...state,
           fathers: [...newFathers],

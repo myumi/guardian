@@ -35,8 +35,8 @@ export default function MatchMaking() {
       
       <div className="matchmaking__tier">
         <h1>Saved Parents for Matchmaking</h1>
+        {(!motherParents.length && !fatherParents.length) ? <span className="matchmaking__empty-statement">No parents have been saved yet.</span> : ''}
         <ul className="matchmaking__parents" >
-          {(!motherParents.length && !fatherParents.length) ? <span className="matchmaking__empty-statement">No parents have been saved here yet.</span> : ''}
           {motherParents.map((dragon: DragonType, index: number) => <li key={`${dragon.name}-${index}`}><MatchMakingParent dragon={dragon} sex='mother' /></li>)}
           {fatherParents.map((dragon: DragonType, index: number) => <li key={`${dragon.name}-${index}`}><MatchMakingParent dragon={dragon} sex='father' /></li>)}
         </ul>

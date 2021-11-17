@@ -30,6 +30,7 @@
 }
 
 .matchmaking__parents {
+  cursor: pointer;
   padding: 0 0 0 16px;
 
   li {
@@ -50,12 +51,7 @@
   flex-direction: row;
   align-items: center;
 
-  cursor: pointer;
   margin: 0 5px 0;
-
-  span {
-    margin: 0 5px 0 0;
-  }
 }
 
 .matchmaking__parents .matchmaking__empty-statement {
