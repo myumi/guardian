@@ -1,4 +1,4 @@
-@import '_breakpoints.scss';
+@import '../_breakpoints.scss';
 
 .matchmaking {
   display: flex;
@@ -50,12 +50,7 @@
   flex-direction: row;
   align-items: center;
 
-  cursor: pointer;
   margin: 0 5px 0;
-
-  span {
-    margin: 0 5px 0 0;
-  }
 }
 
 .matchmaking__parents .matchmaking__empty-statement {

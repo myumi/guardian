@@ -6,28 +6,31 @@ import '../styles/Color.scss';
 interface ColorProps {
   color: ColorInterface;
   category: 'primary' | 'secondary' | 'tertiary';
+  interactable?: boolean;
 };
 
-export default function Color({ color, category }: ColorProps) {
+export default function Color({ color, category, interactable = true, }: ColorProps) {
   const dispatch = useDispatch();
   const childColor = useSelector((state: any) => state.dragons.child.colors[category].value);
   const { colorName, colorCode, value } = color;
   const isChildColor = value === childColor;
 
   const changeChildColor = () => {
-    dispatch({
-      type: 'dragon/childColors', 
-      payload: {
-        colors: {
-          [category]: getColor(value),
-        },
-      }
-    });
+    if (interactable) {
+      dispatch({
+        type: 'dragon/childColors', 
+        payload: {
+          colors: {
+            [category]: getColor(value),
+          },
+        }
+      });
+    }
   };
 
   return (
     <div 
-      className={`color${isChildColor ? ' highlighted' : ''}`} 
+      className={`color${interactable && isChildColor ? ' highlighted' : ''}`} 
       style={{backgroundColor: colorCode}} 
       title={colorName}
       onClick={changeChildColor}

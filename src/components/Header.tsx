@@ -1,7 +1,7 @@
 import { ReactComponent as DiceSVG } from '../assets/header/dice.svg';
 import { ReactComponent as HeartSVG } from '../assets/header/heart.svg';
 import { ReactComponent as FaqSVG } from '../assets/header/faq.svg';
-import { ReactComponent as GearSVG } from '../assets/header/gear.svg';
+// import { ReactComponent as GearSVG } from '../assets/header/gear.svg';
 import '../styles/Header.scss';
 
 type HeaderProps = {
@@ -26,10 +26,10 @@ export default function Header({setPage}: HeaderProps) {
           <FaqSVG />
           <span className="header__nav-item__label">FAQ</span>
         </div>
-        <div className="header__nav-item" onClick={() => {}}>
+        {/* <div className="header__nav-item" onClick={() => {}}>
           <GearSVG />
           <span className="header__nav-item__label">Settings</span>
-        </div>
+        </div> */}
       </nav>
 
       {/* <div className="header__settings">

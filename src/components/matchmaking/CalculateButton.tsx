@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import '../../styles/MatchMakingButton.scss';
 
 export default function AddParentButton() {
   const dispatch = useDispatch();

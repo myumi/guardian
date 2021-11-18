@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { MODERN_PRIMARY_GENES, MODERN_SECONDARY_GENES, MODERN_TERTIARY_GENES } from '../types/constants';
+import { MODERN_PRIMARY_GENES, MODERN_SECONDARY_GENES, MODERN_TERTIARY_GENES } from '../../types/constants';
 interface GeneSelectProps {
   type: string; // primary, secondary, tertiary
   id: string; // mother, father, child

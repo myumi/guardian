@@ -1,9 +1,9 @@
-import { Match } from 'guardian';
-import MatchMakingMatch from './MatchMakingMatch';
-import '../../styles/MatchMakingList.scss';
+import { Match as MatchType } from 'guardian';
+import Match from './Match';
+import '../../styles/matchmaking/MatchMakingList.scss';
 
 interface MatchMakingListProps {
-  matches: Array<Match>;
+  matches: Array<MatchType>;
   type?: string;
 }
 
@@ -20,8 +20,8 @@ export default function MatchMakingList({ matches, type }: MatchMakingListProps)
       <ol>
         {
           matches.length 
-          ? matches.map((item: any, index: number) => {
-            return <li key={`${type}: ${index}`}><MatchMakingMatch match={item} /></li>
+          ? matches.map((pair: any, index: number) => {
+            return <li key={`${type}: ${index}`}><Match match={pair} /></li>
           })
           : <span className="matchmaking__empty-statement">{emptyStatement}</span>
         }

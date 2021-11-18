@@ -1,0 +1,27 @@
+.matchmaking__parent__text {
+  display: inline-block;
+  margin-right: 5px;
+  width: 140px;
+}
+
+.matchmaking__parent__name {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+.matchmaking__parent__sex {
+  margin-left: 5px;
+}
+
+.matchmaking__parent__remove {
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.matchmaking__matched-parent__colors .color {
+  cursor: unset;
+}
