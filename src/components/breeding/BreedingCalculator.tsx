@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import Dragon from '../Dragon';
-import ColorProbability from '../ColorProbability';
-import '../../styles/BreedingCalculator.scss';
-import BreedProbability from '../BreedProbability';
-import GeneProbability from '../GeneProbability';
+import ColorProbability from './ColorProbability';
+import '../../styles/breeding/BreedingCalculator.scss';
+import BreedProbability from './BreedProbability';
+import GeneProbability from './GeneProbability';
 import TotalProbability from './TotalProbability';
 
 export default function BreedingCalculator() {

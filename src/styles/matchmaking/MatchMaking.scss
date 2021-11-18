@@ -1,4 +1,4 @@
-@import '_breakpoints.scss';
+@import '../_breakpoints.scss';
 
 .matchmaking {
   display: flex;
@@ -30,7 +30,6 @@
 }
 
 .matchmaking__parents {
-  cursor: pointer;
   padding: 0 0 0 16px;
 
   li {

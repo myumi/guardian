@@ -2,13 +2,13 @@ import { useDispatch } from 'react-redux';
 import { Dragon } from 'guardian';
 import Color from '../Color';
 import { ReactComponent as TrashSVG } from '../../assets/matchmaking/trash.svg';
-import '../../styles/MatchMakingParent.scss';
-interface MatchMakingParentInterface {
+import '../../styles/matchmaking/Parent.scss';
+interface ParentInterface {
   dragon: Dragon,
   sex: 'mother' | 'father';
 };
 
-export default function MatchMakingParent({ dragon, sex }: MatchMakingParentInterface) {
+export default function Parent({ dragon, sex }: ParentInterface) {
   const dispatch = useDispatch();
 
   const { colors: { primary, secondary, tertiary }, name } = dragon;
@@ -25,6 +25,7 @@ export default function MatchMakingParent({ dragon, sex }: MatchMakingParentInte
   return (
     <>
     <span className="matchmaking__parent">
+    <div className="matchmaking__parent__text">
       <span className="matchmaking__parent__name" onClick={setParent}>
         {name}
         <span className="matchmaking__parent__sex">
@@ -33,12 +34,15 @@ export default function MatchMakingParent({ dragon, sex }: MatchMakingParentInte
             : "♂ "}
         </span>
       </span>
-      {/* todo: remove color highlighting if under matches */}
-      <Color color={primary} category="primary" />
-      <Color color={secondary} category="secondary" />
-      <Color color={tertiary} category="tertiary" />
-      {/* todo: hide if under matches */}
-      <TrashSVG fill="#5F3E0E" onClick={removeParent} />
+    </div>
+
+      <div className="matchmaking__parent__colors">
+        <Color color={primary} category="primary" />
+        <Color color={secondary} category="secondary" />
+        <Color color={tertiary} category="tertiary" />
+      </div>
+
+      <TrashSVG fill="#5F3E0E" className="matchmaking__parent__remove" onClick={removeParent} />
     </span>
     </>
   );

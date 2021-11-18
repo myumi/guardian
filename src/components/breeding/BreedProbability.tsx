@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { ModernBreed, Rarity } from 'guardian';
-import { MODERN_BREEDS, RARITY_CHART } from '../types/constants';
-import '../styles/BreedProbability.scss';
+import { ModernBreed } from 'guardian';
+import { MODERN_BREEDS, RARITY_CHART } from '../../types/constants';
+import '../../styles/breeding/BreedProbability.scss';
 
 export default function BreedProbability() {
   const dispatch = useDispatch();
-  const femaleBreedImages = importAll(require.context('../assets/dragons/breeds/female/', false, /\.(png|jpe?g|svg)$/));
-  const maleBreedImages = importAll(require.context('../assets/dragons/breeds/male/', false, /\.(png|jpe?g|svg)$/));
+  const femaleBreedImages = importAll(require.context('../../assets/dragons/breeds/female/', false, /\.(png|jpe?g|svg)$/));
+  const maleBreedImages = importAll(require.context('../../assets/dragons/breeds/male/', false, /\.(png|jpe?g|svg)$/));
 
   const motherBreed = useSelector((state: any) => state.dragons.mother.breed);
   const fatherBreed = useSelector((state: any) => state.dragons.father.breed);

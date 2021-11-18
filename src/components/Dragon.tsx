@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import BreedSelect from './BreedSelect';
-import GeneSelect from './GeneSelect';
+import BreedSelect from './breeding/BreedSelect';
+import GeneSelect from './breeding/GeneSelect';
 import ColorSelect from './ColorSelect';
 import { Dragon as DragonType } from 'guardian';
 import '../styles/Dragon.scss';

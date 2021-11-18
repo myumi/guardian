@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { MODERN_PRIMARY_GENES, MODERN_SECONDARY_GENES, MODERN_TERTIARY_GENES, RARITY_CHART } from '../types/constants';
-import '../styles/GeneProbability.scss';
+import { MODERN_PRIMARY_GENES, MODERN_SECONDARY_GENES, MODERN_TERTIARY_GENES, RARITY_CHART } from '../../types/constants';
+import '../../styles/breeding/GeneProbability.scss';
 interface GeneProbabilityProps {
   type: string; // primary, secondary, teriary
 }
@@ -10,11 +10,11 @@ export default function GeneProbability({ type }: GeneProbabilityProps) {
   
   let geneImages = [];
   if (type === 'primary') {
-    geneImages = importAll(require.context('../assets/dragons/genes/primary', false, /\.(png|jpe?g|svg)$/));
+    geneImages = importAll(require.context('../../assets/dragons/genes/primary', false, /\.(png|jpe?g|svg)$/));
   } else if (type === 'secondary') {
-    geneImages = importAll(require.context('../assets/dragons/genes/secondary', true, /\.(png|jpe?g|svg)$/));
+    geneImages = importAll(require.context('../../assets/dragons/genes/secondary', true, /\.(png|jpe?g|svg)$/));
   } else if (type === 'tertiary') {
-    geneImages = importAll(require.context('../assets/dragons/genes/tertiary', true, /\.(png|jpe?g|svg)$/));
+    geneImages = importAll(require.context('../../assets/dragons/genes/tertiary', true, /\.(png|jpe?g|svg)$/));
   }
 
   const motherGene = useSelector((state: any) => state.dragons.mother.genes[type]);

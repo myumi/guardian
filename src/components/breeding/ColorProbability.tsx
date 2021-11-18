@@ -1,6 +1,6 @@
-import Color from './Color';
-import { ColorInterface } from '../modules/types/types';
-import '../styles/ColorProbability.scss'
+import Color from '../Color';
+import { ColorInterface } from '../../modules/types/types';
+import '../../styles/breeding/ColorProbability.scss'
 
 interface ColorProbabilityProps {
   id: 'primary' | 'secondary' | 'tertiary';

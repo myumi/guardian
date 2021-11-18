@@ -1,11 +1,11 @@
 import { Dragon as DragonType } from 'guardian';
 import { useSelector } from 'react-redux';
 import MatchMakingList from './MatchMakingList';
-import MatchMakingParent from './MatchMakingParent';
+import Parent from './Parent';
 import AddParentButton from './AddParentButton';
 import CalculateButton from './CalculateButton';
 import Dragon from '../Dragon';
-import '../../styles/MatchMaking.scss'
+import '../../styles/matchmaking/MatchMaking.scss'
 
 export default function MatchMaking() {
   const mother = useSelector((state: any) => state.dragons.mother);
@@ -37,8 +37,8 @@ export default function MatchMaking() {
         <h1>Saved Parents for Matchmaking</h1>
         {(!motherParents.length && !fatherParents.length) ? <span className="matchmaking__empty-statement">No parents have been saved yet.</span> : ''}
         <ul className="matchmaking__parents" >
-          {motherParents.map((dragon: DragonType, index: number) => <li key={`${dragon.name}-${index}`}><MatchMakingParent dragon={dragon} sex='mother' /></li>)}
-          {fatherParents.map((dragon: DragonType, index: number) => <li key={`${dragon.name}-${index}`}><MatchMakingParent dragon={dragon} sex='father' /></li>)}
+          {motherParents.map((dragon: DragonType, index: number) => <li key={`${dragon.name}-${index}`}><Parent dragon={dragon} sex='mother' /></li>)}
+          {fatherParents.map((dragon: DragonType, index: number) => <li key={`${dragon.name}-${index}`}><Parent dragon={dragon} sex='father' /></li>)}
         </ul>
       </div>
 
